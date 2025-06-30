@@ -1,1 +1,0 @@
-http://3.107.195.248/moodle/mod/url/view.php?id=2 -> https://saturncloud.io/blog/how-to-read-data-from-google-sheets-using-colaboratory-google/

@@ -24,22 +24,30 @@ def get_modules(db: Session = Depends(get_db)):
 
 
 @router.put("/updaterisk/{link_id}")
-def update_risk_status_api(link_id: int, status: str, db: Session = Depends(get_db)):
+def update_risk_info_api(
+    link_id: int, score: float, category: str, db: Session = Depends(get_db)
+):
     query = text(
         """
         UPDATE scraped_contents
-        SET risk_status = :status
+        SET risk_score = :score,
+            risk_category = :category
         WHERE scraped_id = :id
-    """
+        """
     )
 
-    result = db.execute(query, {"status": status, "id": link_id})
+    result = db.execute(query, {"score": score, "category": category, "id": link_id})
 
     if result.rowcount == 0:
         raise HTTPException(status_code=404, detail="Link not found")
 
     db.commit()
-    return {"message": "Risk status updated", "link_id": link_id, "new_status": status}
+    return {
+        "message": "Risk info updated",
+        "link_id": link_id,
+        "new_score": score,
+        "new_category": category,
+    }
 
 
 @router.get("/moduleid", response_model=List[int])
@@ -104,7 +112,7 @@ from sqlalchemy import text
 def get_high_risk_links(db: Session = Depends(get_db)):
     query = text(
         """
-        SELECT scraped_id AS "scrapeID", url_link AS url, risk_status AS risk, scraped_at AS date
+        SELECT scraped_id AS "scrapeID", url_link AS url, risk_score AS score, risk_category AS category, scraped_at AS date
         FROM scraped_contents
         WHERE session_id = (
             SELECT MAX(session_id) FROM scraper_sessions
@@ -124,7 +132,7 @@ def get_high_risk_links(db: Session = Depends(get_db)):
         WHERE session_id = (
             SELECT MAX(session_id) FROM scraper_sessions
         )
-        AND risk_status = 'clean'
+        AND risk_score < 0 
         """
     )
 

@@ -1,4 +1,4 @@
-from sqlalchemy import Column, String, Integer, ForeignKey, DateTime, Text, Boolean
+from sqlalchemy import Column, String, Integer, ForeignKey, DateTime, Text, Boolean,Float
 from sqlalchemy.orm import relationship
 from .database import Base
 
@@ -67,7 +67,8 @@ class ScrapedContent(Base):
     )
     scraped_at = Column(DateTime)
     url_link = Column(Text)
-    risk_status = Column(String)
+    risk_category = Column(String)
+    risk_score = Column(Float)
     content_location = Column(Text)
     is_paywall = Column(Boolean, default=False)
     apa7 = Column(Text)

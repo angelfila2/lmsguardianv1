@@ -1,0 +1,1535 @@
+{
+  "data": {
+    "id": "pornhub.com",
+    "type": "domain",
+    "links": {
+      "self": "https://www.virustotal.com/api/v3/domains/pornhub.com"
+    },
+    "attributes": {
+      "last_analysis_date": 1751262400,
+      "total_votes": {
+        "harmless": 67,
+        "malicious": 125
+      },
+      "creation_date": 972995018,
+      "tags": [],
+      "categories": {
+        "BitDefender": "porn",
+        "Xcitium Verdict Cloud": "pornography",
+        "Sophos": "sexually explicit",
+        "Forcepoint ThreatSeeker": "sex"
+      },
+      "tld": "com",
+      "jarm": "27d27d27d00027d00041d41d0000005a3e96c1dfa4bdb24b8b3c04cae18cc3",
+      "last_modification_date": 1751267989,
+      "whois_date": 1749597085,
+      "last_dns_records": [
+        {
+          "type": "TXT",
+          "ttl": 3600,
+          "value": "google-site-verification=HjPnSnR1Tun0kHE_HxQ90eShcfVw-ZnloCL0FkOHYXw"
+        },
+        {
+          "type": "NS",
+          "ttl": 21600,
+          "value": "ns-1499.awsdns-59.org"
+        },
+        {
+          "type": "A",
+          "ttl": 12840,
+          "value": "66.254.114.41"
+        },
+        {
+          "type": "TXT",
+          "ttl": 3600,
+          "value": "pd5fdxxbzn34ljgl6kbhd5xnz4cdgt3f"
+        },
+        {
+          "type": "MX",
+          "ttl": 683,
+          "priority": 10,
+          "value": "mxb-002a0701.gslb.pphosted.com"
+        },
+        {
+          "type": "TXT",
+          "ttl": 3600,
+          "value": "kkvchh9nc20zqclz9r1fwfx4ydfh41pd"
+        },
+        {
+          "type": "NS",
+          "ttl": 21600,
+          "value": "ns-92.awsdns-11.com"
+        },
+        {
+          "type": "NS",
+          "ttl": 21600,
+          "value": "sdns3.ultradns.org"
+        },
+        {
+          "type": "TXT",
+          "ttl": 3600,
+          "value": "MS=ms54289033"
+        },
+        {
+          "type": "TXT",
+          "ttl": 3600,
+          "value": "google-site-verification=A_zvK-GpJnRnZeQsY7Zu6-OhUtttveONsSHeEyesS7E"
+        },
+        {
+          "type": "TXT",
+          "ttl": 3600,
+          "value": "google-site-verification=mBLIe_LYyVmp7-dKcYMnE2VgbHqhMMbF0Ib_lNxydxw"
+        },
+        {
+          "type": "TXT",
+          "ttl": 3600,
+          "value": "51v423477tpvn79tnhkc6dcd50vfwsmw"
+        },
+        {
+          "type": "TXT",
+          "ttl": 3600,
+          "value": "google-site-verification=dug_KXFRBOzhEpV6p-hzn-ozaGXa3xfF82rW6mqhOK8"
+        },
+        {
+          "type": "TXT",
+          "ttl": 3600,
+          "value": "kRTRS-5fqACZExtm5Ed_63Uz2-mi2w"
+        },
+        {
+          "type": "MX",
+          "ttl": 683,
+          "priority": 10,
+          "value": "mxa-002a0701.gslb.pphosted.com"
+        },
+        {
+          "type": "TXT",
+          "ttl": 3600,
+          "value": "google-site-verification=LFRKK2NjHzXR6MK6RU7zIEI7Tgel7vtoE88kNZqUaos"
+        },
+        {
+          "type": "TXT",
+          "ttl": 3600,
+          "value": "_twpx4k787g069qzojo75ghmnlil23i8"
+        },
+        {
+          "type": "SOA",
+          "ttl": 17524,
+          "value": "sdns3.ultradns.net",
+          "rname": "dns.mindgeek.com",
+          "serial": 2014036471,
+          "refresh": 28800,
+          "retry": 7200,
+          "expire": 1209600,
+          "minimum": 43200
+        },
+        {
+          "type": "TXT",
+          "ttl": 3600,
+          "value": "google-site-verification=oiQAl3PbQ5Ozmw2lDDQ_UuJMGvOpEzzJ_b926wxMXcI"
+        },
+        {
+          "type": "TXT",
+          "ttl": 3600,
+          "value": "j3hm4p54gpzff1dt25w0z1m5q6749v23"
+        },
+        {
+          "type": "TXT",
+          "ttl": 3600,
+          "value": "google-site-verification=z7sWYEKED5sA2wXYfCmlR2OKkV7YiaPiZMv-YkQ8l6Y"
+        },
+        {
+          "type": "TXT",
+          "ttl": 3600,
+          "value": "google-gws-recovery-domain-verification=50340749"
+        },
+        {
+          "type": "NS",
+          "ttl": 21600,
+          "value": "ns-1567.awsdns-03.co.uk"
+        },
+        {
+          "type": "NS",
+          "ttl": 21600,
+          "value": "sdns3.ultradns.com"
+        },
+        {
+          "type": "TXT",
+          "ttl": 3600,
+          "value": "v=spf1 include:_spf.mlsend.com include:sender.zohobooks.com include:mail.zendesk.com ip4:94.199.255.10/32 ip4:208.91.206.64/26 ip4:66.254.113.78/32 ip4:66.254.119.174 ip4:66.254.113.78 ip4:66.254.112.72/30 ip4:162.211.96.66 ip4:162.211.96.67 ip4:67.231.15"
+        },
+        {
+          "type": "NS",
+          "ttl": 21600,
+          "value": "ns-531.awsdns-02.net"
+        },
+        {
+          "type": "NS",
+          "ttl": 21600,
+          "value": "sdns3.ultradns.net"
+        },
+        {
+          "type": "NS",
+          "ttl": 21600,
+          "value": "sdns3.ultradns.biz"
+        },
+        {
+          "type": "TXT",
+          "ttl": 3600,
+          "value": "_pp4dhbbh0qvnkenn5nf1e9psomjg6fg"
+        }
+      ],
+      "last_update_date": 1701792688,
+      "last_analysis_results": {
+        "Acronis": {
+          "method": "blacklist",
+          "engine_name": "Acronis",
+          "category": "harmless",
+          "result": "clean"
+        },
+        "0xSI_f33d": {
+          "method": "blacklist",
+          "engine_name": "0xSI_f33d",
+          "category": "undetected",
+          "result": "unrated"
+        },
+        "Abusix": {
+          "method": "blacklist",
+          "engine_name": "Abusix",
+          "category": "harmless",
+          "result": "clean"
+        },
+        "ADMINUSLabs": {
+          "method": "blacklist",
+          "engine_name": "ADMINUSLabs",
+          "category": "harmless",
+          "result": "clean"
+        },
+        "Axur": {
+          "method": "blacklist",
+          "engine_name": "Axur",
+          "category": "undetected",
+          "result": "unrated"
+        },
+        "Criminal IP": {
+          "method": "blacklist",
+          "engine_name": "Criminal IP",
+          "category": "harmless",
+          "result": "clean"
+        },
+        "AILabs (MONITORAPP)": {
+          "method": "blacklist",
+          "engine_name": "AILabs (MONITORAPP)",
+          "category": "harmless",
+          "result": "clean"
+        },
+        "AlienVault": {
+          "method": "blacklist",
+          "engine_name": "AlienVault",
+          "category": "harmless",
+          "result": "clean"
+        },
+        "alphaMountain.ai": {
+          "method": "blacklist",
+          "engine_name": "alphaMountain.ai",
+          "category": "harmless",
+          "result": "clean"
+        },
+        "AlphaSOC": {
+          "method": "blacklist",
+          "engine_name": "AlphaSOC",
+          "category": "undetected",
+          "result": "unrated"
+        },
+        "Antiy-AVL": {
+          "method": "blacklist",
+          "engine_name": "Antiy-AVL",
+          "category": "harmless",
+          "result": "clean"
+        },
+        "ArcSight Threat Intelligence": {
+          "method": "blacklist",
+          "engine_name": "ArcSight Threat Intelligence",
+          "category": "undetected",
+          "result": "unrated"
+        },
+        "AutoShun": {
+          "method": "blacklist",
+          "engine_name": "AutoShun",
+          "category": "undetected",
+          "result": "unrated"
+        },
+        "benkow.cc": {
+          "method": "blacklist",
+          "engine_name": "benkow.cc",
+          "category": "harmless",
+          "result": "clean"
+        },
+        "Bfore.Ai PreCrime": {
+          "method": "blacklist",
+          "engine_name": "Bfore.Ai PreCrime",
+          "category": "undetected",
+          "result": "unrated"
+        },
+        "BitDefender": {
+          "method": "blacklist",
+          "engine_name": "BitDefender",
+          "category": "harmless",
+          "result": "clean"
+        },
+        "Bkav": {
+          "method": "blacklist",
+          "engine_name": "Bkav",
+          "category": "undetected",
+          "result": "unrated"
+        },
+        "Blueliv": {
+          "method": "blacklist",
+          "engine_name": "Blueliv",
+          "category": "harmless",
+          "result": "clean"
+        },
+        "Certego": {
+          "method": "blacklist",
+          "engine_name": "Certego",
+          "category": "harmless",
+          "result": "clean"
+        },
+        "Chong Lua Dao": {
+          "method": "blacklist",
+          "engine_name": "Chong Lua Dao",
+          "category": "harmless",
+          "result": "clean"
+        },
+        "CINS Army": {
+          "method": "blacklist",
+          "engine_name": "CINS Army",
+          "category": "harmless",
+          "result": "clean"
+        },
+        "Cluster25": {
+          "method": "blacklist",
+          "engine_name": "Cluster25",
+          "category": "undetected",
+          "result": "unrated"
+        },
+        "CRDF": {
+          "method": "blacklist",
+          "engine_name": "CRDF",
+          "category": "harmless",
+          "result": "clean"
+        },
+        "CSIS Security Group": {
+          "method": "blacklist",
+          "engine_name": "CSIS Security Group",
+          "category": "undetected",
+          "result": "unrated"
+        },
+        "Snort IP sample list": {
+          "method": "blacklist",
+          "engine_name": "Snort IP sample list",
+          "category": "harmless",
+          "result": "clean"
+        },
+        "CMC Threat Intelligence": {
+          "method": "blacklist",
+          "engine_name": "CMC Threat Intelligence",
+          "category": "harmless",
+          "result": "clean"
+        },
+        "Cyan": {
+          "method": "blacklist",
+          "engine_name": "Cyan",
+          "category": "undetected",
+          "result": "unrated"
+        },
+        "Cyble": {
+          "method": "blacklist",
+          "engine_name": "Cyble",
+          "category": "harmless",
+          "result": "clean"
+        },
+        "CyRadar": {
+          "method": "blacklist",
+          "engine_name": "CyRadar",
+          "category": "harmless",
+          "result": "clean"
+        },
+        "DNS8": {
+          "method": "blacklist",
+          "engine_name": "DNS8",
+          "category": "harmless",
+          "result": "clean"
+        },
+        "Dr.Web": {
+          "method": "blacklist",
+          "engine_name": "Dr.Web",
+          "category": "harmless",
+          "result": "clean"
+        },
+        "Ermes": {
+          "method": "blacklist",
+          "engine_name": "Ermes",
+          "category": "undetected",
+          "result": "unrated"
+        },
+        "ESET": {
+          "method": "blacklist",
+          "engine_name": "ESET",
+          "category": "harmless",
+          "result": "clean"
+        },
+        "ESTsecurity": {
+          "method": "blacklist",
+          "engine_name": "ESTsecurity",
+          "category": "harmless",
+          "result": "clean"
+        },
+        "EmergingThreats": {
+          "method": "blacklist",
+          "engine_name": "EmergingThreats",
+          "category": "harmless",
+          "result": "clean"
+        },
+        "Emsisoft": {
+          "method": "blacklist",
+          "engine_name": "Emsisoft",
+          "category": "harmless",
+          "result": "clean"
+        },
+        "Forcepoint ThreatSeeker": {
+          "method": "blacklist",
+          "engine_name": "Forcepoint ThreatSeeker",
+          "category": "harmless",
+          "result": "clean"
+        },
+        "Fortinet": {
+          "method": "blacklist",
+          "engine_name": "Fortinet",
+          "category": "harmless",
+          "result": "clean"
+        },
+        "G-Data": {
+          "method": "blacklist",
+          "engine_name": "G-Data",
+          "category": "harmless",
+          "result": "clean"
+        },
+        "GCP Abuse Intelligence": {
+          "method": "blacklist",
+          "engine_name": "GCP Abuse Intelligence",
+          "category": "undetected",
+          "result": "unrated"
+        },
+        "Google Safebrowsing": {
+          "method": "blacklist",
+          "engine_name": "Google Safebrowsing",
+          "category": "harmless",
+          "result": "clean"
+        },
+        "GreenSnow": {
+          "method": "blacklist",
+          "engine_name": "GreenSnow",
+          "category": "harmless",
+          "result": "clean"
+        },
+        "Gridinsoft": {
+          "method": "blacklist",
+          "engine_name": "Gridinsoft",
+          "category": "undetected",
+          "result": "unrated"
+        },
+        "Heimdal Security": {
+          "method": "blacklist",
+          "engine_name": "Heimdal Security",
+          "category": "harmless",
+          "result": "clean"
+        },
+        "Hunt.io Intelligence": {
+          "method": "blacklist",
+          "engine_name": "Hunt.io Intelligence",
+          "category": "undetected",
+          "result": "unrated"
+        },
+        "IPsum": {
+          "method": "blacklist",
+          "engine_name": "IPsum",
+          "category": "harmless",
+          "result": "clean"
+        },
+        "Juniper Networks": {
+          "method": "blacklist",
+          "engine_name": "Juniper Networks",
+          "category": "harmless",
+          "result": "clean"
+        },
+        "Kaspersky": {
+          "method": "blacklist",
+          "engine_name": "Kaspersky",
+          "category": "harmless",
+          "result": "clean"
+        },
+        "Lionic": {
+          "method": "blacklist",
+          "engine_name": "Lionic",
+          "category": "harmless",
+          "result": "clean"
+        },
+        "Lumu": {
+          "method": "blacklist",
+          "engine_name": "Lumu",
+          "category": "undetected",
+          "result": "unrated"
+        },
+        "MalwarePatrol": {
+          "method": "blacklist",
+          "engine_name": "MalwarePatrol",
+          "category": "harmless",
+          "result": "clean"
+        },
+        "MalwareURL": {
+          "method": "blacklist",
+          "engine_name": "MalwareURL",
+          "category": "undetected",
+          "result": "unrated"
+        },
+        "Malwared": {
+          "method": "blacklist",
+          "engine_name": "Malwared",
+          "category": "harmless",
+          "result": "clean"
+        },
+        "Mimecast": {
+          "method": "blacklist",
+          "engine_name": "Mimecast",
+          "category": "undetected",
+          "result": "unrated"
+        },
+        "Netcraft": {
+          "method": "blacklist",
+          "engine_name": "Netcraft",
+          "category": "undetected",
+          "result": "unrated"
+        },
+        "OpenPhish": {
+          "method": "blacklist",
+          "engine_name": "OpenPhish",
+          "category": "harmless",
+          "result": "clean"
+        },
+        "Phishing Database": {
+          "method": "blacklist",
+          "engine_name": "Phishing Database",
+          "category": "harmless",
+          "result": "clean"
+        },
+        "PhishFort": {
+          "method": "blacklist",
+          "engine_name": "PhishFort",
+          "category": "undetected",
+          "result": "unrated"
+        },
+        "PhishLabs": {
+          "method": "blacklist",
+          "engine_name": "PhishLabs",
+          "category": "undetected",
+          "result": "unrated"
+        },
+        "Phishtank": {
+          "method": "blacklist",
+          "engine_name": "Phishtank",
+          "category": "harmless",
+          "result": "clean"
+        },
+        "PREBYTES": {
+          "method": "blacklist",
+          "engine_name": "PREBYTES",
+          "category": "harmless",
+          "result": "clean"
+        },
+        "PrecisionSec": {
+          "method": "blacklist",
+          "engine_name": "PrecisionSec",
+          "category": "undetected",
+          "result": "unrated"
+        },
+        "Quick Heal": {
+          "method": "blacklist",
+          "engine_name": "Quick Heal",
+          "category": "harmless",
+          "result": "clean"
+        },
+        "Quttera": {
+          "method": "blacklist",
+          "engine_name": "Quttera",
+          "category": "harmless",
+          "result": "clean"
+        },
+        "SafeToOpen": {
+          "method": "blacklist",
+          "engine_name": "SafeToOpen",
+          "category": "undetected",
+          "result": "unrated"
+        },
+        "Sansec eComscan": {
+          "method": "blacklist",
+          "engine_name": "Sansec eComscan",
+          "category": "undetected",
+          "result": "unrated"
+        },
+        "Scantitan": {
+          "method": "blacklist",
+          "engine_name": "Scantitan",
+          "category": "harmless",
+          "result": "clean"
+        },
+        "SCUMWARE.org": {
+          "method": "blacklist",
+          "engine_name": "SCUMWARE.org",
+          "category": "harmless",
+          "result": "clean"
+        },
+        "Seclookup": {
+          "method": "blacklist",
+          "engine_name": "Seclookup",
+          "category": "harmless",
+          "result": "clean"
+        },
+        "SecureBrain": {
+          "method": "blacklist",
+          "engine_name": "SecureBrain",
+          "category": "undetected",
+          "result": "unrated"
+        },
+        "SOCRadar": {
+          "method": "blacklist",
+          "engine_name": "SOCRadar",
+          "category": "harmless",
+          "result": "clean"
+        },
+        "Sophos": {
+          "method": "blacklist",
+          "engine_name": "Sophos",
+          "category": "harmless",
+          "result": "clean"
+        },
+        "Spam404": {
+          "method": "blacklist",
+          "engine_name": "Spam404",
+          "category": "harmless",
+          "result": "clean"
+        },
+        "StopForumSpam": {
+          "method": "blacklist",
+          "engine_name": "StopForumSpam",
+          "category": "harmless",
+          "result": "clean"
+        },
+        "Sucuri SiteCheck": {
+          "method": "blacklist",
+          "engine_name": "Sucuri SiteCheck",
+          "category": "harmless",
+          "result": "clean"
+        },
+        "ThreatHive": {
+          "method": "blacklist",
+          "engine_name": "ThreatHive",
+          "category": "harmless",
+          "result": "clean"
+        },
+        "Threatsourcing": {
+          "method": "blacklist",
+          "engine_name": "Threatsourcing",
+          "category": "harmless",
+          "result": "clean"
+        },
+        "Trustwave": {
+          "method": "blacklist",
+          "engine_name": "Trustwave",
+          "category": "harmless",
+          "result": "clean"
+        },
+        "Underworld": {
+          "method": "blacklist",
+          "engine_name": "Underworld",
+          "category": "undetected",
+          "result": "unrated"
+        },
+        "URLhaus": {
+          "method": "blacklist",
+          "engine_name": "URLhaus",
+          "category": "harmless",
+          "result": "clean"
+        },
+        "URLQuery": {
+          "method": "blacklist",
+          "engine_name": "URLQuery",
+          "category": "harmless",
+          "result": "clean"
+        },
+        "Viettel Threat Intelligence": {
+          "method": "blacklist",
+          "engine_name": "Viettel Threat Intelligence",
+          "category": "harmless",
+          "result": "clean"
+        },
+        "VIPRE": {
+          "method": "blacklist",
+          "engine_name": "VIPRE",
+          "category": "undetected",
+          "result": "unrated"
+        },
+        "VX Vault": {
+          "method": "blacklist",
+          "engine_name": "VX Vault",
+          "category": "harmless",
+          "result": "clean"
+        },
+        "ViriBack": {
+          "method": "blacklist",
+          "engine_name": "ViriBack",
+          "category": "harmless",
+          "result": "clean"
+        },
+        "Webroot": {
+          "method": "blacklist",
+          "engine_name": "Webroot",
+          "category": "harmless",
+          "result": "clean"
+        },
+        "Yandex Safebrowsing": {
+          "method": "blacklist",
+          "engine_name": "Yandex Safebrowsing",
+          "category": "harmless",
+          "result": "clean"
+        },
+        "ZeroCERT": {
+          "method": "blacklist",
+          "engine_name": "ZeroCERT",
+          "category": "harmless",
+          "result": "clean"
+        },
+        "desenmascara.me": {
+          "method": "blacklist",
+          "engine_name": "desenmascara.me",
+          "category": "harmless",
+          "result": "clean"
+        },
+        "malwares.com URL checker": {
+          "method": "blacklist",
+          "engine_name": "malwares.com URL checker",
+          "category": "harmless",
+          "result": "clean"
+        },
+        "securolytics": {
+          "method": "blacklist",
+          "engine_name": "securolytics",
+          "category": "harmless",
+          "result": "clean"
+        },
+        "Xcitium Verdict Cloud": {
+          "method": "blacklist",
+          "engine_name": "Xcitium Verdict Cloud",
+          "category": "undetected",
+          "result": "unrated"
+        },
+        "zvelo": {
+          "method": "blacklist",
+          "engine_name": "zvelo",
+          "category": "undetected",
+          "result": "unrated"
+        },
+        "ZeroFox": {
+          "method": "blacklist",
+          "engine_name": "ZeroFox",
+          "category": "undetected",
+          "result": "unrated"
+        }
+      },
+      "last_analysis_stats": {
+        "malicious": 0,
+        "suspicious": 0,
+        "undetected": 29,
+        "harmless": 65,
+        "timeout": 0
+      },
+      "registrar": "EuroDNS S.A.",
+      "last_https_certificate_date": 1751262703,
+      "rdap": {
+        "handle": "pornhub.com",
+        "ldh_name": "pornhub.com",
+        "unicode_name": "pornhub.com",
+        "events": [
+          {
+            "event_action": "registration",
+            "event_date": "2000-10-31T00:00:00+01:00",
+            "event_actor": "",
+            "links": []
+          },
+          {
+            "event_action": "expiration",
+            "event_date": "2027-10-30T00:00:00+02:00",
+            "event_actor": "",
+            "links": []
+          },
+          {
+            "event_action": "last update of RDAP database",
+            "event_date": "2025-06-18T20:17:08.819+02:00",
+            "event_actor": "",
+            "links": []
+          }
+        ],
+        "links": [
+          {
+            "href": "https://rdap.eurodns.com/domain/pornhub.com",
+            "rel": "self",
+            "type": "application/rdap+json",
+            "value": "https://rdap.eurodns.com/domain/pornhub.com",
+            "title": "",
+            "media": "",
+            "href_lang": []
+          },
+          {
+            "href": "https://rdap.eurodns.com",
+            "rel": "related",
+            "type": "application/rdap+json",
+            "value": "https://rdap.eurodns.com",
+            "title": "",
+            "media": "",
+            "href_lang": []
+          }
+        ],
+        "notices": [
+          {
+            "title": "EuroDNS RDAP Terms and Conditions",
+            "description": [
+              "The RDAP service offered by EuroDNS S.A. is subject to Terms and Conditions.",
+              "Please visit https://www.eurodns.com/privacy-policy"
+            ],
+            "links": [
+              {
+                "href": "https://www.eurodns.com/privacy-policy",
+                "rel": "related",
+                "type": "text/html",
+                "value": "https://www.eurodns.com/privacy-policy",
+                "title": "",
+                "media": "",
+                "href_lang": []
+              }
+            ],
+            "type": ""
+          },
+          {
+            "title": "Status Codes",
+            "description": [
+              "For more information on domain status codes, please visit https://icann.org/epp"
+            ],
+            "links": [
+              {
+                "href": "https://icann.org/epp",
+                "rel": "glossary",
+                "type": "text/html",
+                "value": "https://icann.org/epp",
+                "title": "",
+                "media": "",
+                "href_lang": []
+              }
+            ],
+            "type": ""
+          },
+          {
+            "title": "RDDS Inaccuracy Complaint Form",
+            "description": [
+              "URL of the ICANN RDDS Inaccuracy Complaint Form: https://icann.org/wicf"
+            ],
+            "links": [
+              {
+                "href": "https://icann.org/wicf",
+                "rel": "help",
+                "type": "text/html",
+                "value": "https://icann.org/wicf",
+                "title": "",
+                "media": "",
+                "href_lang": []
+              }
+            ],
+            "type": ""
+          }
+        ],
+        "nameservers": [
+          {
+            "ldh_name": "ns-531.awsdns-02.net",
+            "ip_addresses": {
+              "v4": [
+                "205.251.194.19"
+              ],
+              "v6": []
+            },
+            "object_class_name": "nameserver",
+            "handle": "",
+            "unicode_name": "",
+            "events": [],
+            "links": [],
+            "notices": [],
+            "status": [],
+            "lang": "",
+            "port43": "",
+            "entities": [],
+            "remarks": []
+          },
+          {
+            "ldh_name": "ns-92.awsdns-11.com",
+            "ip_addresses": {
+              "v4": [
+                "205.251.192.92"
+              ],
+              "v6": []
+            },
+            "object_class_name": "nameserver",
+            "handle": "",
+            "unicode_name": "",
+            "events": [],
+            "links": [],
+            "notices": [],
+            "status": [],
+            "lang": "",
+            "port43": "",
+            "entities": [],
+            "remarks": []
+          },
+          {
+            "ldh_name": "ns-1499.awsdns-59.org",
+            "ip_addresses": {
+              "v4": [
+                "205.251.197.219"
+              ],
+              "v6": []
+            },
+            "object_class_name": "nameserver",
+            "handle": "",
+            "unicode_name": "",
+            "events": [],
+            "links": [],
+            "notices": [],
+            "status": [],
+            "lang": "",
+            "port43": "",
+            "entities": [],
+            "remarks": []
+          },
+          {
+            "ldh_name": "ns-1567.awsdns-03.co.uk",
+            "ip_addresses": {
+              "v4": [
+                "205.251.198.31"
+              ],
+              "v6": []
+            },
+            "object_class_name": "nameserver",
+            "handle": "",
+            "unicode_name": "",
+            "events": [],
+            "links": [],
+            "notices": [],
+            "status": [],
+            "lang": "",
+            "port43": "",
+            "entities": [],
+            "remarks": []
+          },
+          {
+            "ldh_name": "sdns3.ultradns.biz",
+            "ip_addresses": {
+              "v4": [
+                "156.154.142.3"
+              ],
+              "v6": []
+            },
+            "object_class_name": "nameserver",
+            "handle": "",
+            "unicode_name": "",
+            "events": [],
+            "links": [],
+            "notices": [],
+            "status": [],
+            "lang": "",
+            "port43": "",
+            "entities": [],
+            "remarks": []
+          },
+          {
+            "ldh_name": "sdns3.ultradns.com",
+            "ip_addresses": {
+              "v4": [
+                "156.154.140.3"
+              ],
+              "v6": []
+            },
+            "object_class_name": "nameserver",
+            "handle": "",
+            "unicode_name": "",
+            "events": [],
+            "links": [],
+            "notices": [],
+            "status": [],
+            "lang": "",
+            "port43": "",
+            "entities": [],
+            "remarks": []
+          },
+          {
+            "ldh_name": "sdns3.ultradns.net",
+            "ip_addresses": {
+              "v4": [
+                "156.154.141.3"
+              ],
+              "v6": []
+            },
+            "object_class_name": "nameserver",
+            "handle": "",
+            "unicode_name": "",
+            "events": [],
+            "links": [],
+            "notices": [],
+            "status": [],
+            "lang": "",
+            "port43": "",
+            "entities": [],
+            "remarks": []
+          },
+          {
+            "ldh_name": "sdns3.ultradns.org",
+            "ip_addresses": {
+              "v4": [
+                "156.154.143.3"
+              ],
+              "v6": []
+            },
+            "object_class_name": "nameserver",
+            "handle": "",
+            "unicode_name": "",
+            "events": [],
+            "links": [],
+            "notices": [],
+            "status": [],
+            "lang": "",
+            "port43": "",
+            "entities": [],
+            "remarks": []
+          }
+        ],
+        "rdap_conformance": [
+          "rdap_level_0",
+          "icann_rdap_response_profile_1",
+          "icann_rdap_technical_implementation_guide_1"
+        ],
+        "entities": [
+          {
+            "object_class_name": "entity",
+            "handle": "o_1259947",
+            "vcard_array": [
+              {
+                "name": "version",
+                "type": "text",
+                "values": [
+                  "4.0"
+                ],
+                "parameters": {}
+              },
+              {
+                "name": "fn",
+                "type": "text",
+                "values": [
+                  "Privacy Whois"
+                ],
+                "parameters": {}
+              },
+              {
+                "name": "adr",
+                "parameters": {
+                  "cc": [
+                    "LU"
+                  ]
+                },
+                "type": "text",
+                "values": [
+                  "",
+                  "BPM 333868 Banzelt 4 A",
+                  "Root-sur-Syre",
+                  "",
+                  "6921",
+                  ""
+                ]
+              },
+              {
+                "name": "tel",
+                "parameters": {
+                  "type": [
+                    "voice"
+                  ]
+                },
+                "type": "uri",
+                "values": [
+                  "tel:+35227720304"
+                ]
+              },
+              {
+                "name": "email",
+                "type": "text",
+                "values": [
+                  "77423009d240d737_o@whoisprivacy.com"
+                ],
+                "parameters": {}
+              }
+            ],
+            "roles": [
+              "registrant"
+            ],
+            "links": [
+              {
+                "href": "https://rdap.eurodns.com/entity/o_1259947",
+                "rel": "self",
+                "type": "application/rdap+json",
+                "value": "https://rdap.eurodns.com/entity/o_1259947",
+                "title": "",
+                "media": "",
+                "href_lang": []
+              }
+            ],
+            "public_ids": [],
+            "entities": [],
+            "remarks": [],
+            "events": [],
+            "as_event_actor": [],
+            "status": [],
+            "port43": "",
+            "networks": [],
+            "autnums": [],
+            "url": "",
+            "lang": "",
+            "rdap_conformance": []
+          },
+          {
+            "object_class_name": "entity",
+            "handle": "a_1259947",
+            "vcard_array": [
+              {
+                "name": "version",
+                "type": "text",
+                "values": [
+                  "4.0"
+                ],
+                "parameters": {}
+              },
+              {
+                "name": "fn",
+                "type": "text",
+                "values": [
+                  "Privacy Whois"
+                ],
+                "parameters": {}
+              },
+              {
+                "name": "adr",
+                "parameters": {
+                  "cc": [
+                    "LU"
+                  ]
+                },
+                "type": "text",
+                "values": [
+                  "",
+                  "BPM 333868 Banzelt 4 A",
+                  "Root-sur-Syre",
+                  "",
+                  "6921",
+                  ""
+                ]
+              },
+              {
+                "name": "tel",
+                "parameters": {
+                  "type": [
+                    "voice"
+                  ]
+                },
+                "type": "uri",
+                "values": [
+                  "tel:+35227720304"
+                ]
+              },
+              {
+                "name": "email",
+                "type": "text",
+                "values": [
+                  "77423009d240d737_a@whoisprivacy.com"
+                ],
+                "parameters": {}
+              }
+            ],
+            "roles": [
+              "administrative"
+            ],
+            "links": [
+              {
+                "href": "https://rdap.eurodns.com/entity/a_1259947",
+                "rel": "self",
+                "type": "application/rdap+json",
+                "value": "https://rdap.eurodns.com/entity/a_1259947",
+                "title": "",
+                "media": "",
+                "href_lang": []
+              }
+            ],
+            "public_ids": [],
+            "entities": [],
+            "remarks": [],
+            "events": [],
+            "as_event_actor": [],
+            "status": [],
+            "port43": "",
+            "networks": [],
+            "autnums": [],
+            "url": "",
+            "lang": "",
+            "rdap_conformance": []
+          },
+          {
+            "object_class_name": "entity",
+            "handle": "t_1259947",
+            "vcard_array": [
+              {
+                "name": "version",
+                "type": "text",
+                "values": [
+                  "4.0"
+                ],
+                "parameters": {}
+              },
+              {
+                "name": "fn",
+                "type": "text",
+                "values": [
+                  "Privacy Whois"
+                ],
+                "parameters": {}
+              },
+              {
+                "name": "adr",
+                "parameters": {
+                  "cc": [
+                    "LU"
+                  ]
+                },
+                "type": "text",
+                "values": [
+                  "",
+                  "BPM 333868 Banzelt 4 A",
+                  "Root-sur-Syre",
+                  "",
+                  "6921",
+                  ""
+                ]
+              },
+              {
+                "name": "tel",
+                "parameters": {
+                  "type": [
+                    "voice"
+                  ]
+                },
+                "type": "uri",
+                "values": [
+                  "tel:+35227720304"
+                ]
+              },
+              {
+                "name": "email",
+                "type": "text",
+                "values": [
+                  "77423009d240d737_t@whoisprivacy.com"
+                ],
+                "parameters": {}
+              }
+            ],
+            "roles": [
+              "technical"
+            ],
+            "links": [
+              {
+                "href": "https://rdap.eurodns.com/entity/t_1259947",
+                "rel": "self",
+                "type": "application/rdap+json",
+                "value": "https://rdap.eurodns.com/entity/t_1259947",
+                "title": "",
+                "media": "",
+                "href_lang": []
+              }
+            ],
+            "public_ids": [],
+            "entities": [],
+            "remarks": [],
+            "events": [],
+            "as_event_actor": [],
+            "status": [],
+            "port43": "",
+            "networks": [],
+            "autnums": [],
+            "url": "",
+            "lang": "",
+            "rdap_conformance": []
+          },
+          {
+            "object_class_name": "entity",
+            "handle": "1052",
+            "vcard_array": [
+              {
+                "name": "version",
+                "type": "text",
+                "values": [
+                  "4.0"
+                ],
+                "parameters": {}
+              },
+              {
+                "name": "fn",
+                "type": "text",
+                "values": [
+                  "Legal Services"
+                ],
+                "parameters": {}
+              },
+              {
+                "name": "org",
+                "type": "text",
+                "values": [
+                  "Eurodns S.A."
+                ],
+                "parameters": {}
+              }
+            ],
+            "roles": [
+              "registrar"
+            ],
+            "entities": [
+              {
+                "object_class_name": "entity",
+                "handle": "abuse",
+                "vcard_array": [
+                  {
+                    "name": "version",
+                    "type": "text",
+                    "values": [
+                      "4.0"
+                    ],
+                    "parameters": {}
+                  },
+                  {
+                    "name": "fn",
+                    "type": "text",
+                    "values": [
+                      "Eurodns S.A."
+                    ],
+                    "parameters": {}
+                  },
+                  {
+                    "name": "tel",
+                    "parameters": {
+                      "type": [
+                        "voice"
+                      ]
+                    },
+                    "type": "uri",
+                    "values": [
+                      "tel:+35226372637"
+                    ]
+                  },
+                  {
+                    "name": "email",
+                    "type": "text",
+                    "values": [
+                      "legal@eurodns.com"
+                    ],
+                    "parameters": {}
+                  }
+                ],
+                "roles": [
+                  "abuse"
+                ],
+                "links": [
+                  {
+                    "href": "https://rdap.eurodns.com/entity/abuse",
+                    "rel": "self",
+                    "type": "application/rdap+json",
+                    "value": "https://rdap.eurodns.com/entity/abuse",
+                    "title": "",
+                    "media": "",
+                    "href_lang": []
+                  }
+                ],
+                "public_ids": [],
+                "entities": [],
+                "remarks": [],
+                "events": [],
+                "as_event_actor": [],
+                "status": [],
+                "port43": "",
+                "networks": [],
+                "autnums": [],
+                "url": "",
+                "lang": "",
+                "rdap_conformance": []
+              }
+            ],
+            "links": [
+              {
+                "href": "https://rdap.eurodns.com/entity/1052",
+                "rel": "self",
+                "type": "application/rdap+json",
+                "value": "https://rdap.eurodns.com/entity/1052",
+                "title": "",
+                "media": "",
+                "href_lang": []
+              },
+              {
+                "href": "https://www.eurodns.com",
+                "rel": "about",
+                "type": "text/html",
+                "value": "https://rdap.eurodns.com",
+                "title": "",
+                "media": "",
+                "href_lang": []
+              }
+            ],
+            "public_ids": [],
+            "remarks": [],
+            "events": [],
+            "as_event_actor": [],
+            "status": [],
+            "port43": "",
+            "networks": [],
+            "autnums": [],
+            "url": "",
+            "lang": "",
+            "rdap_conformance": []
+          }
+        ],
+        "object_class_name": "domain",
+        "status": [
+          "active",
+          "client transfer prohibited"
+        ],
+        "secure_dns": {
+          "delegation_signed": false,
+          "zone_signed": false,
+          "max_sig_life": 0,
+          "ds_data": [],
+          "key_data": []
+        },
+        "port43": "whois.eurodns.com",
+        "public_ids": [
+          {
+            "type": "IANA Registrar ID",
+            "identifier": "1052"
+          }
+        ],
+        "lang": "en",
+        "punycode": "",
+        "type": "",
+        "switch_name": "",
+        "remarks": [],
+        "nask0_state": "",
+        "variants": []
+      },
+      "reputation": -112,
+      "popularity_ranks": {
+        "Majestic": {
+          "rank": 2559,
+          "timestamp": 1751207885
+        },
+        "Statvoo": {
+          "timestamp": 1684083481,
+          "rank": 23
+        },
+        "Alexa": {
+          "timestamp": 1684083480,
+          "rank": 23
+        },
+        "Cisco Umbrella": {
+          "rank": 9950,
+          "timestamp": 1751207888
+        },
+        "Cloudflare Radar": {
+          "rank": 2000,
+          "timestamp": 1751207889
+        }
+      },
+      "expiration_date": 1824981818,
+      "whois": "Admin City: Root-sur-Syre\nAdmin Country: LU\nAdmin Email: f16f566b4269e4bcs@whoisprivacy.com\nAdmin Organization: Whois Privacy (enumDNS dba)\nAdmin Postal Code: 6921\nCreation Date: 2000-10-31T00:00:00Z\nCreation Date: 2000-10-31T12:23:38Z\nDNSSEC: unsigned\nDomain Name: PORNHUB.COM\nDomain Name: pornhub.com\nDomain Status: clientTransferProhibited http://www.icann.org/epp#clientTransferProhibited\nDomain Status: clientTransferProhibited https://icann.org/epp#clientTransferProhibited\nName Server: NS11.DIGICERTDNS.COM\nName Server: NS12.DIGICERTDNS.COM\nName Server: NS13.DIGICERTDNS.NET\nName Server: NS14.DIGICERTDNS.NET\nName Server: SDNS3.ULTRADNS.BIZ\nName Server: SDNS3.ULTRADNS.COM\nName Server: SDNS3.ULTRADNS.NET\nName Server: SDNS3.ULTRADNS.ORG\nName Server: ns11.digicertdns.com\nName Server: ns12.digicertdns.com\nName Server: ns13.digicertdns.net\nName Server: ns14.digicertdns.net\nName Server: sdns3.ultradns.biz\nName Server: sdns3.ultradns.com\nName Server: sdns3.ultradns.net\nName Server: sdns3.ultradns.org\nRegistrant City: adbfe7d15401b167\nRegistrant Country: LU\nRegistrant Email: 754fbe83417d165bs@whoisprivacy.com\nRegistrant Fax: 3432650ec337c945\nRegistrant Name: 99f9e3def34088de\nRegistrant Organization: f9a80af58e3f829d\nRegistrant Phone: d59dbf10d13047d5\nRegistrant Postal Code: 05d7a71862c04e03\nRegistrant State/Province: 3432650ec337c945\nRegistrant Street: 1e7d48bfa4511766\nRegistrar Abuse Contact Email: legalservices@eurodns.com\nRegistrar Abuse Contact Phone: +352.27220150\nRegistrar IANA ID: 1052\nRegistrar Registration Expiration Date: 2027-10-30T00:00:00Z\nRegistrar URL: http://www.EuroDNS.com\nRegistrar URL: http://www.eurodns.com\nRegistrar WHOIS Server: whois.eurodns.com\nRegistrar: EuroDNS S.A.\nRegistrar: Eurodns S.A.\nRegistry Domain ID: 39331852_DOMAIN_COM-VRSN\nRegistry Domain ID: D20945941-COM\nRegistry Expiry Date: 2027-10-31T11:23:38Z\nTech City: Root-sur-Syre\nTech Country: LU\nTech Email: 843ced82fe075285s@whoisprivacy.com\nTech Organization: Whois Privacy (enumDNS dba)\nTech Postal Code: 6921\nUpdated Date: 2023-12-05T15:11:24Z\nUpdated Date: 2023-12-05T16:11:28Z",
+      "last_dns_records_date": 1751262703,
+      "last_https_certificate": {
+        "cert_signature": {
+          "signature_algorithm": "1.2.840.10045.4.3.3",
+          "signature": "3066023100b302fa46e7f22dd606b9a37594b3c3ec81d37c5c21939af6490da7505ae15fbd1db9529e41bfaab85460d6848c36c2d3023100fa72dc89198ae25efa4e25df58fc1f56c412706d354a44520265a6aef3de65283aeac09b2db9bc611234ac38888345c1"
+        },
+        "extensions": {
+          "authority_key_identifier": {
+            "keyid": "8a23eb9e6bd7f9375df96d2139769aa167de10a8"
+          },
+          "subject_key_identifier": "eb5d23770e791280d24b73476c7122ac8c5221a6",
+          "subject_alternative_name": [
+            "*.pornhub.com",
+            "pornhub.com"
+          ],
+          "certificate_policies": [
+            "2.23.140.1.2.2"
+          ],
+          "key_usage": [
+            "digitalSignature",
+            "keyAgreement"
+          ],
+          "extended_key_usage": [
+            "serverAuth",
+            "clientAuth"
+          ],
+          "crl_distribution_points": [
+            "http://crl3.digicert.com/DigiCertGlobalG3TLSECCSHA3842020CA1-2.crl",
+            "http://crl4.digicert.com/DigiCertGlobalG3TLSECCSHA3842020CA1-2.crl"
+          ],
+          "ca_information_access": {
+            "OCSP": "http://ocsp.digicert.com",
+            "CA Issuers": "http://cacerts.digicert.com/DigiCertGlobalG3TLSECCSHA3842020CA1-2.crt"
+          },
+          "CA": false,
+          "1.3.6.1.4.1.11129.2.4.2": "0482016a01680075000e5794bcf3aea93e331b2c9907b3f790df9bc23d713225"
+        },
+        "validity": {
+          "not_after": "2026-02-09 23:59:59",
+          "not_before": "2025-01-09 00:00:00"
+        },
+        "size": 1381,
+        "version": "V3",
+        "public_key": {
+          "algorithm": "EC",
+          "ec": {
+            "oid": "secp256r1",
+            "pub": "3059301306072a8648ce3d020106082a8648ce3d030107034200042c9b55429c937a348065c152f98a5dcde9a810b170285aec2eecd9f811d2f0f58d9b092de41d424a7012ad4c9d48f495033d36bc1b96fd79de96b89542e64e62"
+          }
+        },
+        "thumbprint_sha256": "46be1c70ee482900f7d27fd2fa6bbe8b74a2375fa0784b44f4af0444fa7d168c",
+        "thumbprint": "27480f2e2447a16508f7913055bb32b2d4beaad0",
+        "serial_number": "722461f90badaea513a8b1438652e4a",
+        "issuer": {
+          "C": "US",
+          "O": "DigiCert Inc",
+          "CN": "DigiCert Global G3 TLS ECC SHA384 2020 CA1"
+        },
+        "subject": {
+          "C": "CY",
+          "L": "Dali",
+          "O": "AYLO Freesites Ltd",
+          "CN": "*.pornhub.com"
+        }
+      }
+    }
+  }
+}

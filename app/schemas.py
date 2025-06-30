@@ -5,7 +5,8 @@ from datetime import datetime
 
 class HighRiskLink(BaseModel):
     url: str
-    risk: str
+    category: Optional[str]
+    score: Optional[float]
     date: datetime
     scrapeID: int
 
@@ -48,7 +49,8 @@ class ScrapedContentCreate(BaseModel):
     session_id: int
     scraped_at: Optional[datetime] = None
     url_link: str
-    risk_status: Optional[str] = None
+    risk_category: Optional[str] = None
+    risk_score: Optional[float] = None
     content_location: Optional[str] = None
     is_paywall: Optional[bool] = False
     apa7: Optional[str] = None

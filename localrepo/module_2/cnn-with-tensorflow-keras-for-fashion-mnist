@@ -10,13 +10,13 @@
   <meta name="description" content="Explore and run machine learning code with Kaggle Notebooks | Using data from Fashion MNIST" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, minimum-scale=1.0">
   <meta name="theme-color" content="#008ABC" />
-  <script nonce="OindoaCsIWgnFKZEw88Nwg==" type="text/javascript">
-    window["pageRequestStartTime"] = 1750159780904;
-    window["pageRequestEndTime"] = 1750159781111;
+  <script nonce="gNhmWX2DKgo68Aka&#x2B;K51Ag==" type="text/javascript">
+    window["pageRequestStartTime"] = 1750602779837;
+    window["pageRequestEndTime"] = 1750602780029;
     window["initialPageLoadStartTime"] = new Date().getTime();
   </script>
-  <script nonce="OindoaCsIWgnFKZEw88Nwg==" id="gsi-client" src="https://accounts.google.com/gsi/client" async defer></script>
-  <script nonce="OindoaCsIWgnFKZEw88Nwg==">window.KAGGLE_JUPYTERLAB_PATH = "/static/assets/jupyterlab-v4/jupyterlab-index-442e20aac938e205e44f.html";</script>
+  <script nonce="gNhmWX2DKgo68Aka&#x2B;K51Ag==" id="gsi-client" src="https://accounts.google.com/gsi/client" async defer></script>
+  <script nonce="gNhmWX2DKgo68Aka&#x2B;K51Ag==">window.KAGGLE_JUPYTERLAB_PATH = "/static/assets/jupyterlab-v4/jupyterlab-index-d4b8ad4368d38367d18d.html";</script>
   <link rel="preconnect" href="https://www.google-analytics.com" crossorigin="anonymous" /><link rel="preconnect" href="https://stats.g.doubleclick.net" /><link rel="preconnect" href="https://storage.googleapis.com" /><link rel="preconnect" href="https://apis.google.com" />
     <link href="/static/images/favicon.ico" rel="shortcut icon" type="image/x-icon" id="dynamic-favicon" />
   <link rel="manifest" href="/static/json/manifest.json" crossorigin="use-credentials">
@@ -32,7 +32,7 @@
     rel="stylesheet" media="print" id="async-google-font-1" />
   <link href="https://fonts.googleapis.com/css2?family=Google+Symbols:FILL@0..1&display=block"
     rel="stylesheet" media="print" id="async-google-font-2" />
-  <script nonce="OindoaCsIWgnFKZEw88Nwg==" type="text/javascript">
+  <script nonce="gNhmWX2DKgo68Aka&#x2B;K51Ag==" type="text/javascript">
     const styleSheetIds = ["async-google-font-1", "async-google-font-2"];
     styleSheetIds.forEach(function (id) {
       document.getElementById(id).addEventListener("load", function() {
@@ -48,7 +48,7 @@
   
     
  
-      <script nonce="OindoaCsIWgnFKZEw88Nwg==">
+      <script nonce="gNhmWX2DKgo68Aka&#x2B;K51Ag==">
         try{(function(a,s,y,n,c,h,i,d,e){d=s.createElement("style");
         d.appendChild(s.createTextNode(""));s.head.appendChild(d);d=d.sheet;
         y=y.map(x => d.insertRule(x + "{ opacity: 0 !important }"));
@@ -56,7 +56,7 @@
         (a[n]=a[n]||[]).hide=h;setTimeout(function(){i();h.end=null},c);h.timeout=c;
         })(window,document,['.site-header-react__nav'],'dataLayer',2000,{'GTM-52LNT9S':true});}catch(ex){}
     </script>
-    <script nonce="OindoaCsIWgnFKZEw88Nwg==">
+    <script nonce="gNhmWX2DKgo68Aka&#x2B;K51Ag==">
         window.dataLayer = window.dataLayer || [];
         function gtag() { dataLayer.push(arguments); }
         gtag('js', new Date());
@@ -67,7 +67,7 @@
             'content_group1': 'Notebooks'
         });
     </script>
-    <script nonce="OindoaCsIWgnFKZEw88Nwg==" async src="https://www.googletagmanager.com/gtag/js?id=G-T7QHS60L4Q"></script>
+    <script nonce="gNhmWX2DKgo68Aka&#x2B;K51Ag==" async src="https://www.googletagmanager.com/gtag/js?id=G-T7QHS60L4Q"></script>
 
   
     
@@ -84,7 +84,7 @@
   <meta name="twitter:site" content="@Kaggle" /> 
   
     
-    <script nonce="OindoaCsIWgnFKZEw88Nwg==" type="application/ld+json">{"@context":"http://schema.org/","@type":"Article","author":{"@type":"Person","name":"gpreda","sameAs":"/gpreda"},"headline":"CNN with Tensorflow|Keras for Fashion MNIST","url":"https://www.kaggle.com/code/gpreda/cnn-with-tensorflow-keras-for-fashion-mnist","dateModified":"2021-06-26T10:27:56.1833333Z","datePublished":"2021-06-26T10:27:56.1833333Z","mainEntityOfPage":{"@type":"WebPage","@id":"https://www.kaggle.com/code/gpreda/cnn-with-tensorflow-keras-for-fashion-mnist"},"publisher":{"@type":"Organization","name":"Kaggle","sameAs":"https://www.kaggle.com","logo":{"type":"ImageObject","url":"https://www.kaggle.com/static/images/site-logo.png"}},"image":["https://storage.googleapis.com/kaggle-avatars/thumbnails/769452-kg.jpg"],"description":""}</script>
+    <script nonce="gNhmWX2DKgo68Aka+K51Ag==" type="application/ld+json">{"@context":"http://schema.org/","@type":"Article","author":{"@type":"Person","name":"gpreda","sameAs":"/gpreda"},"headline":"CNN with Tensorflow|Keras for Fashion MNIST","url":"https://www.kaggle.com/code/gpreda/cnn-with-tensorflow-keras-for-fashion-mnist","dateModified":"2021-06-26T10:27:56.1833333Z","datePublished":"2021-06-26T10:27:56.1833333Z","mainEntityOfPage":{"@type":"WebPage","@id":"https://www.kaggle.com/code/gpreda/cnn-with-tensorflow-keras-for-fashion-mnist"},"publisher":{"@type":"Organization","name":"Kaggle","sameAs":"https://www.kaggle.com","logo":{"type":"ImageObject","url":"https://www.kaggle.com/static/images/site-logo.png"}},"image":["https://storage.googleapis.com/kaggle-avatars/thumbnails/769452-kg.jpg"],"description":""}</script>
 
 
   
@@ -98,14 +98,14 @@
     
 
 
-    <script nonce="OindoaCsIWgnFKZEw88Nwg==">window['useKaggleAnalytics'] = true;</script>
+    <script nonce="gNhmWX2DKgo68Aka&#x2B;K51Ag==">window['useKaggleAnalytics'] = true;</script>
 
-  <script id="gapi-target" nonce="OindoaCsIWgnFKZEw88Nwg==" src="https://apis.google.com/js/api.js" defer
+  <script id="gapi-target" nonce="gNhmWX2DKgo68Aka&#x2B;K51Ag==" src="https://apis.google.com/js/api.js" defer
     async></script>
-  <script nonce="OindoaCsIWgnFKZEw88Nwg==" src="/static/assets/runtime.js?v=d14797a678a80183e011"></script>
-  <script nonce="OindoaCsIWgnFKZEw88Nwg==" src="/static/assets/vendor.js?v=c147e011d0a87258f859"></script>
-  <script nonce="OindoaCsIWgnFKZEw88Nwg==" src="/static/assets/app.js?v=fb82018f4aa389b2afd9"></script>
-    <script nonce="OindoaCsIWgnFKZEw88Nwg==" type="text/javascript">
+  <script nonce="gNhmWX2DKgo68Aka+K51Ag==" src="/static/assets/runtime.js?v=69501918cfcfc4b897a6"></script>
+  <script nonce="gNhmWX2DKgo68Aka+K51Ag==" src="/static/assets/vendor.js?v=c147e011d0a87258f859"></script>
+  <script nonce="gNhmWX2DKgo68Aka+K51Ag==" src="/static/assets/app.js?v=e952fa1fce8016f76cbe"></script>
+    <script nonce="gNhmWX2DKgo68Aka&#x2B;K51Ag==" type="text/javascript">
       window.kaggleStackdriverConfig = {
         key: 'AIzaSyA4eNqUdRRskJsCZWVz-qL655Xa5JEMreE',
         projectId: 'kaggle-161607',
@@ -128,7 +128,7 @@
 
 
 
-<script nonce="OindoaCsIWgnFKZEw88Nwg==" type="text/x-mathjax-config">
+<script nonce="gNhmWX2DKgo68Aka&#x2B;K51Ag==" type="text/x-mathjax-config">
     MathJax.Hub.Config({
     jax: ['input/TeX', 'output/SVG'],
     "HTML-CSS": {
@@ -162,7 +162,7 @@
     extensions: ["Safe.js"],
     });
 </script>
-<script type="text/javascript" nonce="OindoaCsIWgnFKZEw88Nwg==">
+<script type="text/javascript" nonce="gNhmWX2DKgo68Aka&#x2B;K51Ag==">
   window.addEventListener("DOMContentLoaded", () => {
     const head = document.getElementsByTagName("head")[0];
     const lib = document.createElement("script");

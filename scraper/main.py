@@ -55,15 +55,34 @@ def startsession():
         return None
 
 
+# async def batchScrape():
+#     # get all courses list first
+#     sessionId = startsession()
+#     moduleIdList = getAllCourseId()
+#     for module in moduleIdList:
+#         moduleid = module["module_id"] + 1
+#         # for my own local
+#         # base_url = f"http://3.107.195.248/moodle/course/view.php?id={moduleid}"
+#         # for vm
+#         base_url = f"http://10.51.33.25/moodle/course/view.php?id={moduleid}"
+
+#         print(base_url)
+#         await run_crawler(base_url, sessionId, module["module_id"])
+
+
+# testing only bsc203
 async def batchScrape():
     # get all courses list first
     sessionId = startsession()
-    moduleIdList = getAllCourseId()
-    for module in moduleIdList:
-        moduleid = module["module_id"] + 1
-        base_url = f"http://3.107.195.248/moodle/course/view.php?id={moduleid}"
-        print(base_url)
-        await run_crawler(base_url, sessionId, module["module_id"])
+
+    moduleid = 2
+    # for my own local
+    # base_url = f"http://3.107.195.248/moodle/course/view.php?id={moduleid}"
+    # for vm
+    base_url = f"http://10.51.33.25/moodle/course/view.php?id={moduleid}"
+
+    print(base_url)
+    await run_crawler(base_url, sessionId, 2)
 
 
 async def batchAnalyse():
