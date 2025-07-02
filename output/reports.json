@@ -1,17 +1,79 @@
 {
   "data": {
-    "id": "ft.com",
+    "id": "docs.python.org",
     "type": "domain",
     "links": {
-      "self": "https://www.virustotal.com/api/v3/domains/ft.com"
+      "self": "https://www.virustotal.com/api/v3/domains/docs.python.org"
     },
     "attributes": {
-      "last_dns_records_date": 1751282640,
-      "categories": {
-        "BitDefender": "financial",
-        "Sophos": "financial services",
-        "Forcepoint ThreatSeeker": "financial data and services"
+      "tld": "org",
+      "last_analysis_date": 1751367723,
+      "jarm": "29d3fd00029d29d00041d41d00041d6b5eefa2404a56c2ced79a0d16afe36c",
+      "last_modification_date": 1751385358,
+      "popularity_ranks": {
+        "Majestic": {
+          "timestamp": 1693241884,
+          "rank": 1362
+        },
+        "Cisco Umbrella": {
+          "rank": 261248,
+          "timestamp": 1751294299
+        }
       },
+      "last_dns_records_date": 1751367725,
+      "tags": [],
+      "last_dns_records": [
+        {
+          "type": "CNAME",
+          "ttl": 6067,
+          "value": "dualstack.python.map.fastly.net"
+        },
+        {
+          "type": "CNAME",
+          "ttl": 15148,
+          "value": "dualstack.python.map.fastly.net"
+        },
+        {
+          "type": "AAAA",
+          "ttl": 60,
+          "value": "2a04:4e42::223"
+        },
+        {
+          "type": "AAAA",
+          "ttl": 60,
+          "value": "2a04:4e42:400::223"
+        },
+        {
+          "type": "A",
+          "ttl": 60,
+          "value": "151.101.128.223"
+        },
+        {
+          "type": "AAAA",
+          "ttl": 60,
+          "value": "2a04:4e42:600::223"
+        },
+        {
+          "type": "A",
+          "ttl": 60,
+          "value": "151.101.64.223"
+        },
+        {
+          "type": "AAAA",
+          "ttl": 60,
+          "value": "2a04:4e42:200::223"
+        },
+        {
+          "type": "A",
+          "ttl": 60,
+          "value": "151.101.192.223"
+        },
+        {
+          "type": "A",
+          "ttl": 60,
+          "value": "151.101.0.223"
+        }
+      ],
       "last_analysis_results": {
         "Acronis": {
           "method": "blacklist",
@@ -268,8 +330,8 @@
         "Gridinsoft": {
           "method": "blacklist",
           "engine_name": "Gridinsoft",
-          "category": "undetected",
-          "result": "unrated"
+          "category": "harmless",
+          "result": "clean"
         },
         "Heimdal Security": {
           "method": "blacklist",
@@ -436,8 +498,8 @@
         "SOCRadar": {
           "method": "blacklist",
           "engine_name": "SOCRadar",
-          "category": "harmless",
-          "result": "clean"
+          "category": "undetected",
+          "result": "unrated"
         },
         "Sophos": {
           "method": "blacklist",
@@ -578,441 +640,12 @@
           "result": "unrated"
         }
       },
-      "last_modification_date": 1751285307,
-      "last_update_date": 1732515067,
-      "registrar": "CSC CORPORATE DOMAINS, INC.",
-      "expiration_date": 1764392400,
-      "creation_date": 786171600,
-      "last_https_certificate": {
-        "cert_signature": {
-          "signature_algorithm": "sha256RSA",
-          "signature": "2c1afda2162cc8e0d7855f51b17512e5138405ba88f21850ab4ab1dfcb76985d27e212cfabd5285b8019129f069ccf6d80c5e3af4b380707b49e315e02e53701c1bbdb6b9c40f28dc1f556ed3b36253b266ad24c736436a718b7a151b70308bb3bc338e10a2ffc03e1baac0f2b06629e900cbda88067aacdf66a10e067797592ca01d3a2f5b316734a58bd9d0ff4b3d13d961d9ce117316929a2294ed7139ef3b26f4d291f15b5c91a785dc93c431670de075b0a7abfe488f91126e34710fcacc5e65d9e56af77b67c1adaf843fe581568d33a46d215291b14aeb9bdcc6e8ad3e802bbb9371c6d2ac3dcce794c8d087fd0cc465f4e7c24c6b09df5e41396f3d0"
-        },
-        "extensions": {
-          "key_usage": [
-            "digitalSignature",
-            "keyEncipherment"
-          ],
-          "extended_key_usage": [
-            "serverAuth"
-          ],
-          "CA": false,
-          "subject_key_identifier": "500657e024f8b8e9eab515400cec83c02c57682e",
-          "authority_key_identifier": {
-            "keyid": "bd979ddfa1d81b2599e30c0406896412d76524c7"
-          },
-          "ca_information_access": {
-            "CA Issuers": "http://int-r1.certainly.com"
-          },
-          "subject_alternative_name": [
-            "*.ft.com",
-            "ft.com"
-          ],
-          "certificate_policies": [
-            "2.23.140.1.2.1"
-          ],
-          "crl_distribution_points": [
-            "http://crls.certainly.com/17182262453002514/4.crl"
-          ],
-          "1.3.6.1.4.1.11129.2.4.2": "0481f300f1007600ed3c4bd6e806c2a4a20057dbcb24e23801df512fedc486c5"
-        },
-        "validity": {
-          "not_after": "2025-07-24 00:18:18",
-          "not_before": "2025-06-24 00:18:19"
-        },
-        "size": 1305,
-        "version": "V3",
-        "public_key": {
-          "algorithm": "RSA",
-          "rsa": {
-            "modulus": "acd893aca4f8a7618b2495e0ce32aea8c1006150cb5d92712fc563105fed355ecbc972f5ecb09318bf94d77e3c7720413dceae384180bae6419a2d819c6befd305d02d785e60e7f2d474a4995c04d09b7f2830f42284c86f88a486c413e725e1e629551bb7aea9bd37c51785b9cb0f04682f122230429d9ff0ea723a5741afff4bdde2ea230dc13a85b57faf8a6de08ee0cffab4bee1d57cecd2803c1668d03cc320b0609f3e53d0768393c813e67903c5286fb9f711a733240d63a44b822a4913f9d20d1f123f936446a6411ccbccd842bff579ca7fcb4390b8b9b9fb0d379d823ddfb72f81f8cc949081ebfd2169711eea60c0dae63c19cc79c1048d96c6e9",
-            "exponent": "10001",
-            "key_size": 2048
-          }
-        },
-        "thumbprint_sha256": "6e54540d255c19ac769d5a20690105c7366ed20f43cc5b60ad5945059d46d157",
-        "thumbprint": "42fb1235ba92a7b7e4c9a8f7c6d8fb497beb55f2",
-        "serial_number": "777f3c39a2c57765c2cfbf928a1162ed997d",
-        "issuer": {
-          "C": "US",
-          "O": "Certainly",
-          "CN": "Certainly Intermediate R1"
-        },
-        "subject": {
-          "CN": "*.ft.com"
-        }
-      },
-      "popularity_ranks": {
-        "Majestic": {
-          "rank": 186,
-          "timestamp": 1751207885
-        },
-        "Statvoo": {
-          "timestamp": 1684169881,
-          "rank": 1477
-        },
-        "Alexa": {
-          "timestamp": 1684083481,
-          "rank": 1477
-        },
-        "Cisco Umbrella": {
-          "rank": 20440,
-          "timestamp": 1751207888
-        },
-        "Quantcast": {
-          "timestamp": 1585755370,
-          "rank": 2329
-        },
-        "Cloudflare Radar": {
-          "rank": 5000,
-          "timestamp": 1751207881
-        }
-      },
-      "tld": "com",
       "total_votes": {
         "harmless": 0,
         "malicious": 0
       },
-      "whois_date": 1748972027,
-      "last_dns_records": [
-        {
-          "type": "TXT",
-          "ttl": 9651,
-          "value": "MS=ms15735648"
-        },
-        {
-          "type": "CAA",
-          "ttl": 60,
-          "flag": 0,
-          "tag": "issue",
-          "value": "globalsign.com"
-        },
-        {
-          "type": "A",
-          "ttl": 2304,
-          "value": "151.101.130.46"
-        },
-        {
-          "type": "TXT",
-          "ttl": 9651,
-          "value": "openai-domain-verification=dv-bxQol3maMz9EffWDUvCsa5cG"
-        },
-        {
-          "type": "TXT",
-          "ttl": 9651,
-          "value": "amazonses:NceEuFJaVFhkB7aKpzAp27vTpU0Z/HHD/LBjG/Jg9yk="
-        },
-        {
-          "type": "NS",
-          "ttl": 300,
-          "value": "ns-1984.awsdns-56.co.uk"
-        },
-        {
-          "type": "MX",
-          "ttl": 14400,
-          "priority": 30,
-          "value": "alt4.aspmx.l.google.com"
-        },
-        {
-          "type": "MX",
-          "ttl": 14400,
-          "priority": 20,
-          "value": "alt2.aspmx.l.google.com"
-        },
-        {
-          "type": "NS",
-          "ttl": 300,
-          "value": "ns-52.awsdns-06.com"
-        },
-        {
-          "type": "TXT",
-          "ttl": 9651,
-          "value": "amazonses:Dw3ndQPO42StK7/Toh+RBHUOydpp514RsYbCJWony5A="
-        },
-        {
-          "type": "MX",
-          "ttl": 14400,
-          "priority": 30,
-          "value": "alt3.aspmx.l.google.com"
-        },
-        {
-          "type": "CAA",
-          "ttl": 60,
-          "flag": 0,
-          "tag": "issuewild",
-          "value": "certainly.com"
-        },
-        {
-          "type": "TXT",
-          "ttl": 9651,
-          "value": "MS=ms50570352"
-        },
-        {
-          "type": "TXT",
-          "ttl": 9651,
-          "value": "docker-verification=f23e7fb2-5705-49f2-a965-506add981f13"
-        },
-        {
-          "type": "TXT",
-          "ttl": 9651,
-          "value": "apple-domain-verification=hiRNMTWYN1yBRwg4"
-        },
-        {
-          "type": "TXT",
-          "ttl": 9651,
-          "value": "docusign=c04c5b8c-58c7-4024-99f3-fb1f636da0d0"
-        },
-        {
-          "type": "A",
-          "ttl": 2304,
-          "value": "151.101.2.46"
-        },
-        {
-          "type": "A",
-          "ttl": 2304,
-          "value": "151.101.66.46"
-        },
-        {
-          "type": "SOA",
-          "ttl": 900,
-          "value": "ns-1447.awsdns-52.org",
-          "rname": "postmaster.ft.com",
-          "serial": 1,
-          "refresh": 7200,
-          "retry": 900,
-          "expire": 1209600,
-          "minimum": 60
-        },
-        {
-          "type": "MX",
-          "ttl": 14400,
-          "priority": 10,
-          "value": "aspmx.l.google.com"
-        },
-        {
-          "type": "CAA",
-          "ttl": 60,
-          "flag": 0,
-          "tag": "issue",
-          "value": "letsencrypt.org"
-        },
-        {
-          "type": "TXT",
-          "ttl": 9651,
-          "value": "facebook-domain-verification=wnuqdndij8zjroogp6jlsu8ud0yu3q"
-        },
-        {
-          "type": "TXT",
-          "ttl": 9651,
-          "value": "pardot_218412=760e83e8fe2a693cf55ad39557c5d2ffa643883ebace2abcb9c1ce7397544cb0"
-        },
-        {
-          "type": "TXT",
-          "ttl": 9651,
-          "value": "mandrill_verify.JufTb8PUBLcJ8tPLkojezA"
-        },
-        {
-          "type": "TXT",
-          "ttl": 9651,
-          "value": "google-site-verification=sXoPNkEqXt3ce7rT9MnH2bnjNLKFR3oizWMMmkQFDLI"
-        },
-        {
-          "type": "TXT",
-          "ttl": 9651,
-          "value": "google-site-verification=5wdQBFe7BWd2XUPzrFHj2G0IQaWSht0iQTWx8WtlckY"
-        },
-        {
-          "type": "TXT",
-          "ttl": 9651,
-          "value": "notion-domain-verification=mkIjxnyKOdeLmDtzKbgWoLKngPBDT5U2dmxXWbCzf7l"
-        },
-        {
-          "type": "CAA",
-          "ttl": 60,
-          "flag": 0,
-          "tag": "issue",
-          "value": "amazon.com"
-        },
-        {
-          "type": "TXT",
-          "ttl": 9651,
-          "value": "facebook-domain-verification=k64kwvkb345rz292m21kltvaf1r5d5"
-        },
-        {
-          "type": "TXT",
-          "ttl": 9651,
-          "value": "facebook-domain-verification=wb6970zko03f90a0lxi4gpt89lnybl"
-        },
-        {
-          "type": "TXT",
-          "ttl": 9651,
-          "value": "amazonses:HvBZtqew7lgZbGfdU4V/Gd07PT9PXZUEHTkH5eHdwYw="
-        },
-        {
-          "type": "CAA",
-          "ttl": 60,
-          "flag": 0,
-          "tag": "issue",
-          "value": "digicert.com"
-        },
-        {
-          "type": "TXT",
-          "ttl": 9651,
-          "value": "MS=ms23088425"
-        },
-        {
-          "type": "CAA",
-          "ttl": 60,
-          "flag": 0,
-          "tag": "iodef",
-          "value": "mailto:cyber.security@ft.com"
-        },
-        {
-          "type": "TXT",
-          "ttl": 9651,
-          "value": "v=spf1 include:_spf.google.com include:mktomail.com include:_spf.salesforce.com include:email.hivebrite.com include:spf.mandrillapp.com include:24982124.spf07.hubspotemail.net -all"
-        },
-        {
-          "type": "TXT",
-          "ttl": 9651,
-          "value": "access-domain-verification=436fdc74c8ebd0d982301a0c1a3b752176a55246a7c97b159d335f195ea09288"
-        },
-        {
-          "type": "TXT",
-          "ttl": 9651,
-          "value": "asv=d0c9c01ad65bddcc0eee60ecfc13201f"
-        },
-        {
-          "type": "TXT",
-          "ttl": 9651,
-          "value": "IktKRV0FPEeiosHW0zf4Lw"
-        },
-        {
-          "type": "TXT",
-          "ttl": 9651,
-          "value": "MS=ms54676079"
-        },
-        {
-          "type": "TXT",
-          "ttl": 9651,
-          "value": "heroku-domain-verification=cx4bs4x6sjp4mkpvtwnmxewswzbdtrbmcntepqy6rg"
-        },
-        {
-          "type": "TXT",
-          "ttl": 9651,
-          "value": "facebook-domain-verification=15ore8k5t6ft96p6lt8sb02m8dls4w"
-        },
-        {
-          "type": "TXT",
-          "ttl": 9651,
-          "value": "atlassian-domain-verification=/flKBbAdKfXx7mblo5+qFf5hD7psLK8FrrnR9vB5xL5zyvD19GRnuo4/PrNPij84"
-        },
-        {
-          "type": "TXT",
-          "ttl": 9651,
-          "value": "heroku-domain-verification=tufsffy5onn3/h7ssw8arpc8jtd8df232k3ky8b0rdm"
-        },
-        {
-          "type": "TXT",
-          "ttl": 9651,
-          "value": "sophos-domain-verification=67ec68273fd952a93f6de23473f7209d3f10f79602e68759b4a0fbf41588d36b"
-        },
-        {
-          "type": "NS",
-          "ttl": 300,
-          "value": "ns-1447.awsdns-52.org"
-        },
-        {
-          "type": "A",
-          "ttl": 2304,
-          "value": "151.101.194.46"
-        },
-        {
-          "type": "TXT",
-          "ttl": 9651,
-          "value": "make-domain-verification=25fb721f-943e-4b5d-8268-48ff60f61191"
-        },
-        {
-          "type": "TXT",
-          "ttl": 9651,
-          "value": "slack-domain-verification=z853Xxvh1FXWNfobsGsdZp626tQCj0k4tvSa2w4O"
-        },
-        {
-          "type": "MX",
-          "ttl": 14400,
-          "priority": 20,
-          "value": "alt1.aspmx.l.google.com"
-        },
-        {
-          "type": "TXT",
-          "ttl": 9651,
-          "value": "google-site-verification=nqX1TPP8SIFG3F_1ULz5qPw7qEqO4Bowh14fkxdESfo"
-        },
-        {
-          "type": "TXT",
-          "ttl": 9651,
-          "value": "MS=ms23619679"
-        },
-        {
-          "type": "TXT",
-          "ttl": 9651,
-          "value": "pardot596911=26c4369191477541d69fe3837196409e805f282f3e4aef8171e20293d42957ad"
-        },
-        {
-          "type": "TXT",
-          "ttl": 9651,
-          "value": "atlassian-domain-verification=hVzdk0lf3NQ/udMQWFZWxWA8eOjXyOjGD6e+1kcBpqqsLX8LHdqE5pNv+c32u0ho"
-        },
-        {
-          "type": "CAA",
-          "ttl": 60,
-          "flag": 0,
-          "tag": "issuewild",
-          "value": "amazon.com"
-        },
-        {
-          "type": "TXT",
-          "ttl": 9651,
-          "value": "mongodb-site-verification=l2ACYeoZMEwgZw4T5SPbJiGRPoBKC3wt"
-        },
-        {
-          "type": "NS",
-          "ttl": 300,
-          "value": "ns-530.awsdns-02.net"
-        },
-        {
-          "type": "CAA",
-          "ttl": 60,
-          "flag": 0,
-          "tag": "issuewild",
-          "value": "digicert.com"
-        },
-        {
-          "type": "TXT",
-          "ttl": 9651,
-          "value": "facebook-domain-verification=k7y14n0l2qtawyedyyz5fiu9ngsvg7"
-        },
-        {
-          "type": "CAA",
-          "ttl": 60,
-          "flag": 0,
-          "tag": "issue",
-          "value": "certainly.com"
-        },
-        {
-          "type": "TXT",
-          "ttl": 9651,
-          "value": "adobe-idp-site-verification=c5baff41-b308-42c8-8ace-9393ace1d783"
-        },
-        {
-          "type": "TXT",
-          "ttl": 9651,
-          "value": "/9JIaeVTZTKIvRQN3nbfJN6BNbLYOjQelBjl6qUN4/s="
-        }
-      ],
-      "last_analysis_date": 1751282206,
-      "tags": [],
-      "reputation": 0,
+      "whois": "Admin City: REDACTED\nAdmin Country: REDACTED\nAdmin Organization: REDACTED\nAdmin Postal Code: REDACTED\nAdmin State/Province: REDACTED\nCreation Date: 1995-03-27T05:00:00Z\nDNSSEC: unsigned\nDomain Name: python.org\nDomain Status: clientTransferProhibited https://icann.org/epp#clientTransferProhibited\nName Server: ns-1134.awsdns-13.org\nName Server: ns-2046.awsdns-63.co.uk\nName Server: ns-484.awsdns-60.com\nName Server: ns-981.awsdns-58.net\nRegistrant City: 3495bcf1839c6374\nRegistrant Country: US\nRegistrant Email: fb6ff66ef97c0518s@\nRegistrant Fax Ext: 3495bcf1839c6374\nRegistrant Fax: 3495bcf1839c6374\nRegistrant Name: 3495bcf1839c6374\nRegistrant Organization: 49f63c6396c5d0d7\nRegistrant Phone Ext: 3495bcf1839c6374\nRegistrant Phone: 3495bcf1839c6374\nRegistrant Postal Code: 3495bcf1839c6374\nRegistrant State/Province: 1a1eb37efa4561cb\nRegistrant Street: 3495bcf1839c6374\nRegistrar Abuse Contact Email: abuse@support.gandi.net\nRegistrar Abuse Contact Phone: +33.170377661\nRegistrar IANA ID: 81\nRegistrar URL: http://www.gandi.net\nRegistrar WHOIS Server: http://whois.gandi.net\nRegistrar: Gandi SAS\nRegistry Admin ID: REDACTED\nRegistry Domain ID: 8182a33af4314b999853885eb16ef749-LROR\nRegistry Expiry Date: 2033-03-28T05:00:00Z\nRegistry Registrant ID: REDACTED\nRegistry Tech ID: REDACTED\nTech City: REDACTED\nTech Country: REDACTED\nTech Organization: REDACTED\nTech Postal Code: REDACTED\nTech State/Province: REDACTED\nUpdated Date: 2025-06-17T21:22:38Z",
+      "registrar": "Gandi SAS",
       "last_analysis_stats": {
         "malicious": 0,
         "suspicious": 0,
@@ -1020,618 +653,79 @@
         "harmless": 65,
         "timeout": 0
       },
-      "whois": "Admin City: London\nAdmin Country: GB\nAdmin Email: e225be4c4ad7526bs@ft.com\nAdmin Organization: The Financial Times Limited\nAdmin Postal Code: EC4M 9BT\nAdmin State/Province: ENG\nCreation Date: 1994-11-30T00:00:00Z\nCreation Date: 1994-11-30T05:00:00Z\nDNSSEC: Unsigned\nDNSSEC: unsigned\nDomain Name: FT.COM\nDomain Name: ft.com\nDomain Status: clientTransferProhibited http://www.icann.org/epp#clientTransferProhibited\nDomain Status: clientTransferProhibited https://icann.org/epp#clientTransferProhibited\nName Server: NS-1447.AWSDNS-52.ORG\nName Server: NS-1984.AWSDNS-56.CO.UK\nName Server: NS-52.AWSDNS-06.COM\nName Server: NS-530.AWSDNS-02.NET\nName Server: ns-1447.awsdns-52.org\nName Server: ns-1984.awsdns-56.co.uk\nName Server: ns-52.awsdns-06.com\nName Server: ns-530.awsdns-02.net\nRegistrant City: 4035e4865cb95ee8\nRegistrant Country: GB\nRegistrant Email: e225be4c4ad7526bs@ft.com\nRegistrant Fax Ext: 3432650ec337c945\nRegistrant Fax: b43b198b17c7732e\nRegistrant Name: 3907df601b9573aa\nRegistrant Organization: 3907df601b9573aa\nRegistrant Phone Ext: 3432650ec337c945\nRegistrant Phone: 238833586d9be9f3\nRegistrant Postal Code: 3a2a7b44865eae00\nRegistrant State/Province: ffc5bcc0cb8c1757\nRegistrant Street: 3432650ec337c945\nRegistrar Abuse Contact Email: domainabuse@cscglobal.com\nRegistrar Abuse Contact Phone: +1.8887802723\nRegistrar Abuse Contact Phone: 8887802723\nRegistrar IANA ID: 299\nRegistrar Registration Expiration Date: 2025-11-29T05:00:00Z\nRegistrar URL: http://cscdbs.com\nRegistrar URL: www.cscprotectsbrands.com\nRegistrar WHOIS Server: whois.corporatedomains.com\nRegistrar: CSC CORPORATE DOMAINS, INC.\nRegistrar: CSC Corporate Domains, Inc.\nRegistry Domain ID: 2203883_DOMAIN_COM-VRSN\nRegistry Expiry Date: 2025-11-29T05:00:00Z\nSponsoring Registrar IANA ID: 299\nTech City: London\nTech Country: GB\nTech Email: 6a8bb9e2884ce69cs@ft.com\nTech Organization: The Financial Times Limited\nTech Postal Code: EC4M 9BT\nTech State/Province: ENG\nUpdated Date: 2024-11-25T01:11:08Z\nUpdated Date: 2024-11-25T06:11:07Z",
-      "jarm": "29d3fd00029d29d00041d41d00041d6b5eefa2404a56c2ced79a0d16afe36c",
-      "last_https_certificate_date": 1751282640,
-      "rdap": {
-        "handle": "2203883_DOMAIN_COM-VRSN",
-        "ldh_name": "ft.com",
-        "events": [
-          {
-            "event_action": "registration",
-            "event_date": "1994-11-30T00:00:00Z",
-            "event_actor": "",
-            "links": []
-          },
-          {
-            "event_action": "expiration",
-            "event_date": "2025-11-29T05:00:00Z",
-            "event_actor": "",
-            "links": []
-          },
-          {
-            "event_action": "last update of RDAP database",
-            "event_date": "2025-06-30T07:14:00Z",
-            "event_actor": "",
-            "links": []
-          }
-        ],
-        "notices": [
-          {
-            "title": "Terms of Use",
-            "description": [
-              "Service subject to Terms of Use."
-            ],
-            "links": [
-              {
-                "href": "https://rdap.cscglobal.com/dbs/rdap-api/v1/domain/ft.com",
-                "rel": "self",
-                "type": "text/html",
-                "value": "https://rdap.cscglobal.com/dbs/rdap-api/v1/domain/ft.com",
-                "title": "",
-                "media": "",
-                "href_lang": []
-              }
-            ],
-            "type": ""
-          },
-          {
-            "title": "Status Codes",
-            "description": [
-              "For more information on domain status codes, please visit https://icann.org/epp"
-            ],
-            "links": [
-              {
-                "href": "https://icann.org/epp",
-                "rel": "glossary",
-                "type": "text/html",
-                "value": "https://rdap.cscglobal.com/dbs/rdap-api/v1/domain/ft.com",
-                "title": "",
-                "media": "",
-                "href_lang": []
-              }
-            ],
-            "type": ""
-          },
-          {
-            "title": "RDDS Inaccuracy Complaint Form",
-            "description": [
-              "URL of the ICANN RDDS Inaccuracy Complaint Form: https://icann.org/wicf"
-            ],
-            "links": [
-              {
-                "href": "https://icann.org/wicf",
-                "rel": "help",
-                "type": "text/html",
-                "value": "https://rdap.cscglobal.com/dbs/rdap-api/v1/domain/ft.com",
-                "title": "",
-                "media": "",
-                "href_lang": []
-              }
-            ],
-            "type": ""
-          }
-        ],
-        "nameservers": [
-          {
-            "ldh_name": "ns-52.awsdns-06.com",
-            "object_class_name": "nameserver",
-            "handle": "",
-            "unicode_name": "",
-            "events": [],
-            "links": [],
-            "notices": [],
-            "status": [],
-            "lang": "",
-            "port43": "",
-            "entities": [],
-            "remarks": []
-          },
-          {
-            "ldh_name": "ns-1984.awsdns-56.co.uk",
-            "object_class_name": "nameserver",
-            "handle": "",
-            "unicode_name": "",
-            "events": [],
-            "links": [],
-            "notices": [],
-            "status": [],
-            "lang": "",
-            "port43": "",
-            "entities": [],
-            "remarks": []
-          },
-          {
-            "ldh_name": "ns-1447.awsdns-52.org",
-            "object_class_name": "nameserver",
-            "handle": "",
-            "unicode_name": "",
-            "events": [],
-            "links": [],
-            "notices": [],
-            "status": [],
-            "lang": "",
-            "port43": "",
-            "entities": [],
-            "remarks": []
-          },
-          {
-            "ldh_name": "ns-530.awsdns-02.net",
-            "object_class_name": "nameserver",
-            "handle": "",
-            "unicode_name": "",
-            "events": [],
-            "links": [],
-            "notices": [],
-            "status": [],
-            "lang": "",
-            "port43": "",
-            "entities": [],
-            "remarks": []
-          }
-        ],
-        "rdap_conformance": [
-          "rdap_level_0",
-          "icann_rdap_technical_implementation_guide_0",
-          "icann_rdap_response_profile_0"
-        ],
-        "entities": [
-          {
-            "object_class_name": "entity",
-            "handle": "299",
-            "vcard_array": [
-              {
-                "name": "version",
-                "type": "text",
-                "values": [
-                  "4.0"
-                ],
-                "parameters": {}
-              },
-              {
-                "name": "fn",
-                "type": "text",
-                "values": [
-                  "CSC Corporate Domains, Inc."
-                ],
-                "parameters": {}
-              },
-              {
-                "name": "adr",
-                "parameters": {
-                  "cc": [
-                    "US"
-                  ]
-                },
-                "type": "text",
-                "values": [
-                  "",
-                  "",
-                  "251 Little Falls Drive",
-                  "Wilmington",
-                  "DE",
-                  "19808",
-                  ""
-                ]
-              },
-              {
-                "name": "email",
-                "type": "text",
-                "values": [
-                  "admin@internationaladmin.com"
-                ],
-                "parameters": {}
-              },
-              {
-                "name": "tel",
-                "parameters": {
-                  "type": [
-                    "voice"
-                  ]
-                },
-                "type": "uri",
-                "values": [
-                  "tel:+1.3026365400"
-                ]
-              },
-              {
-                "name": "tel",
-                "parameters": {
-                  "type": [
-                    "fax"
-                  ]
-                },
-                "type": "uri",
-                "values": [
-                  "tel:+1.3026365400"
-                ]
-              }
-            ],
-            "roles": [
-              "registrar"
-            ],
-            "public_ids": [
-              {
-                "type": "IANA Registrar ID",
-                "identifier": "299"
-              }
-            ],
-            "entities": [
-              {
-                "object_class_name": "entity",
-                "vcard_array": [
-                  {
-                    "name": "version",
-                    "type": "text",
-                    "values": [
-                      "4.0"
-                    ],
-                    "parameters": {}
-                  },
-                  {
-                    "name": "fn",
-                    "type": "text",
-                    "values": [
-                      "Abuse Contact"
-                    ],
-                    "parameters": {}
-                  },
-                  {
-                    "name": "email",
-                    "type": "text",
-                    "values": [
-                      "domainabuse@cscglobal.com"
-                    ],
-                    "parameters": {}
-                  },
-                  {
-                    "name": "tel",
-                    "parameters": {
-                      "type": [
-                        "voice"
-                      ]
-                    },
-                    "type": "uri",
-                    "values": [
-                      "tel:+1.8887802723"
-                    ]
-                  }
-                ],
-                "roles": [
-                  "abuse"
-                ],
-                "handle": "",
-                "public_ids": [],
-                "entities": [],
-                "remarks": [],
-                "links": [],
-                "events": [],
-                "as_event_actor": [],
-                "status": [],
-                "port43": "",
-                "networks": [],
-                "autnums": [],
-                "url": "",
-                "lang": "",
-                "rdap_conformance": []
-              }
-            ],
-            "remarks": [],
-            "links": [],
-            "events": [],
-            "as_event_actor": [],
-            "status": [],
-            "port43": "",
-            "networks": [],
-            "autnums": [],
-            "url": "",
-            "lang": "",
-            "rdap_conformance": []
-          },
-          {
-            "object_class_name": "entity",
-            "vcard_array": [
-              {
-                "name": "version",
-                "type": "text",
-                "values": [
-                  "4.0"
-                ],
-                "parameters": {}
-              },
-              {
-                "name": "fn",
-                "type": "text",
-                "values": [
-                  "The Financial Times Limited"
-                ],
-                "parameters": {}
-              },
-              {
-                "name": "org",
-                "type": "text",
-                "values": [
-                  "The Financial Times Limited"
-                ],
-                "parameters": {}
-              },
-              {
-                "name": "adr",
-                "parameters": {
-                  "cc": [
-                    "GB"
-                  ]
-                },
-                "type": "text",
-                "values": [
-                  "",
-                  "",
-                  "Bracken House",
-                  "1 Friday Street",
-                  "London",
-                  "ENG",
-                  "EC4M 9BT",
-                  ""
-                ]
-              },
-              {
-                "name": "email",
-                "type": "text",
-                "values": [
-                  "company.secretary@ft.com"
-                ],
-                "parameters": {}
-              },
-              {
-                "name": "tel",
-                "parameters": {
-                  "type": [
-                    "voice"
-                  ]
-                },
-                "type": "uri",
-                "values": [
-                  "tel:+44.2078733000"
-                ]
-              },
-              {
-                "name": "tel",
-                "parameters": {
-                  "type": [
-                    "fax"
-                  ]
-                },
-                "type": "uri",
-                "values": [
-                  "tel:+44.2078733928"
-                ]
-              }
-            ],
-            "roles": [
-              "administrative"
-            ],
-            "handle": "",
-            "public_ids": [],
-            "entities": [],
-            "remarks": [],
-            "links": [],
-            "events": [],
-            "as_event_actor": [],
-            "status": [],
-            "port43": "",
-            "networks": [],
-            "autnums": [],
-            "url": "",
-            "lang": "",
-            "rdap_conformance": []
-          },
-          {
-            "object_class_name": "entity",
-            "vcard_array": [
-              {
-                "name": "version",
-                "type": "text",
-                "values": [
-                  "4.0"
-                ],
-                "parameters": {}
-              },
-              {
-                "name": "fn",
-                "type": "text",
-                "values": [
-                  "The Financial Times Limited"
-                ],
-                "parameters": {}
-              },
-              {
-                "name": "org",
-                "type": "text",
-                "values": [
-                  "The Financial Times Limited"
-                ],
-                "parameters": {}
-              },
-              {
-                "name": "adr",
-                "parameters": {
-                  "cc": [
-                    "GB"
-                  ]
-                },
-                "type": "text",
-                "values": [
-                  "",
-                  "",
-                  "Bracken House",
-                  "1 Friday Street",
-                  "London",
-                  "ENG",
-                  "EC4M 9BT",
-                  ""
-                ]
-              },
-              {
-                "name": "email",
-                "type": "text",
-                "values": [
-                  "company.secretary@ft.com"
-                ],
-                "parameters": {}
-              },
-              {
-                "name": "tel",
-                "parameters": {
-                  "type": [
-                    "voice"
-                  ]
-                },
-                "type": "uri",
-                "values": [
-                  "tel:+44.2078733000"
-                ]
-              },
-              {
-                "name": "tel",
-                "parameters": {
-                  "type": [
-                    "fax"
-                  ]
-                },
-                "type": "uri",
-                "values": [
-                  "tel:+44.2078733928"
-                ]
-              }
-            ],
-            "roles": [
-              "registrant"
-            ],
-            "handle": "",
-            "public_ids": [],
-            "entities": [],
-            "remarks": [],
-            "links": [],
-            "events": [],
-            "as_event_actor": [],
-            "status": [],
-            "port43": "",
-            "networks": [],
-            "autnums": [],
-            "url": "",
-            "lang": "",
-            "rdap_conformance": []
-          },
-          {
-            "object_class_name": "entity",
-            "vcard_array": [
-              {
-                "name": "version",
-                "type": "text",
-                "values": [
-                  "4.0"
-                ],
-                "parameters": {}
-              },
-              {
-                "name": "fn",
-                "type": "text",
-                "values": [
-                  "FT Support"
-                ],
-                "parameters": {}
-              },
-              {
-                "name": "org",
-                "type": "text",
-                "values": [
-                  "The Financial Times Limited"
-                ],
-                "parameters": {}
-              },
-              {
-                "name": "adr",
-                "parameters": {
-                  "cc": [
-                    "GB"
-                  ]
-                },
-                "type": "text",
-                "values": [
-                  "",
-                  "",
-                  "Bracken House",
-                  "1 Friday Street",
-                  "London",
-                  "ENG",
-                  "EC4M 9BT",
-                  ""
-                ]
-              },
-              {
-                "name": "email",
-                "type": "text",
-                "values": [
-                  "ftepops@ft.com"
-                ],
-                "parameters": {}
-              },
-              {
-                "name": "tel",
-                "parameters": {
-                  "type": [
-                    "voice"
-                  ]
-                },
-                "type": "uri",
-                "values": [
-                  "tel:+44.2078733265"
-                ]
-              },
-              {
-                "name": "tel",
-                "parameters": {
-                  "type": [
-                    "fax"
-                  ]
-                },
-                "type": "uri",
-                "values": [
-                  "tel:+44.2078733928"
-                ]
-              }
-            ],
-            "roles": [
-              "technical"
-            ],
-            "handle": "",
-            "public_ids": [],
-            "entities": [],
-            "remarks": [],
-            "links": [],
-            "events": [],
-            "as_event_actor": [],
-            "status": [],
-            "port43": "",
-            "networks": [],
-            "autnums": [],
-            "url": "",
-            "lang": "",
-            "rdap_conformance": []
-          }
-        ],
-        "object_class_name": "domain",
-        "status": [
-          "client transfer prohibited"
-        ],
-        "secure_dns": {
-          "delegation_signed": false,
-          "zone_signed": false,
-          "max_sig_life": 0,
-          "ds_data": [],
-          "key_data": []
+      "reputation": 0,
+      "expiration_date": 1995598800,
+      "last_https_certificate_date": 1751367725,
+      "creation_date": 796280400,
+      "last_update_date": 1750195358,
+      "last_https_certificate": {
+        "cert_signature": {
+          "signature_algorithm": "sha256RSA",
+          "signature": "518a90de18d2a5116273e2b1d535e07655bc19051887244f2cf78cfc4fd6f0201b3718ce6e0fdfb2badebd8eb8b726918e4332b72645f9785a06d55bdddf21818562423f88a90946950a75a19257ebd08a500f368afb1f35b23c701be70a2f6a12fc79724d699f3ada0ef2350b7c8811179be09e9fc372ea052feefb735030445e140ddbd30c26c3492b697eb8ae5a39d34105599a07c91d7a9dd657a8672f55d6e95d9ddcc492784c696d4ef7dc240c9f71d9e3586a55a16e244ae1dc4bd40095ab1d9240dae85dbabb1f277efdad297d5f6d407fe6b9f95bc73f6c4abe6f7b6e5863d03e08734e90bb4c5e6316139056e71a40fa23e1102f34c74b5c2c7cac"
         },
-        "unicode_name": "",
-        "punycode": "",
-        "type": "",
-        "links": [],
-        "port43": "",
-        "switch_name": "",
-        "public_ids": [],
-        "lang": "",
-        "remarks": [],
-        "nask0_state": "",
-        "variants": []
+        "extensions": {
+          "subject_alternative_name": [
+            "www.python.org",
+            "*.python.org",
+            "python.org"
+          ],
+          "key_usage": [
+            "digitalSignature",
+            "keyEncipherment"
+          ],
+          "extended_key_usage": [
+            "serverAuth",
+            "clientAuth"
+          ],
+          "subject_key_identifier": "e818aa6d8b7f922009444ad940e0ce3e4bcc3f6e",
+          "certificate_policies": [
+            "2.23.140.1.2.1",
+            "1.3.6.1.4.1.4146.10.1.3"
+          ],
+          "CA": false,
+          "ca_information_access": {
+            "OCSP": "http://ocsp.globalsign.com/ca/gsatlasr3dvtlsca2025q1",
+            "CA Issuers": "http://secure.globalsign.com/cacert/gsatlasr3dvtlsca2025q1.crt"
+          },
+          "authority_key_identifier": {
+            "keyid": "25c42811e27d9e32b1214ffb7dffe83852f192e8"
+          },
+          "crl_distribution_points": [
+            "http://crl.globalsign.com/ca/gsatlasr3dvtlsca2025q1.crl"
+          ],
+          "1.3.6.1.4.1.11129.2.4.2": "048201690167007700969764bf555897adf743876837084277e9f03ad5f6a4f3"
+        },
+        "validity": {
+          "not_after": "2026-04-13 12:55:25",
+          "not_before": "2025-03-12 12:55:26"
+        },
+        "size": 1660,
+        "version": "V3",
+        "public_key": {
+          "algorithm": "RSA",
+          "rsa": {
+            "modulus": "b1868aab7d910d007f93a02ac5d60bee7f2ec4be09c7db60d1a8ec40fda6a7769498953681663f3352ebc4f469faa91ad490fed045245f8b5a00d1aa8cc39db815342503d0d199b892fa67e403d78fefed6160e9577cb9d3034f16dd0b050dedf67786bce17801f5253e3da85a5a525d0552868ab904ffb0242d2df1fc8a42dd5f2e8c8e472d6cada4f3b44fa792d40fd1259328b3b5e2650bf5cfabb38cea4c243d79bf64737eb8c8c136c2b66019f953fc8fb679de2605a1f98c405e5144e5d562a1291b183e7e7b3ebecb13b994de1b32f3c8c86c273f3dcc551372aa8ccd015137f4788c5590726b6e869c8e8324bf44625bbfaa22aef2ec76eed5e195e7",
+            "exponent": "10001",
+            "key_size": 2048
+          }
+        },
+        "thumbprint_sha256": "9c858064a3acdbad664be6689476c374c910cfaa16b4ceebb5e0930c4693db62",
+        "thumbprint": "ad75d915fa493d72c9ff40a56b3bdf8591de018e",
+        "serial_number": "194c4563707ff85525c26dcc2eebdec",
+        "issuer": {
+          "C": "BE",
+          "O": "GlobalSign nv-sa",
+          "CN": "GlobalSign Atlas R3 DV TLS CA 2025 Q1"
+        },
+        "subject": {
+          "CN": "www.python.org"
+        }
+      },
+      "categories": {
+        "alphaMountain.ai": "Information Technology (alphaMountain.ai)",
+        "BitDefender": "business",
+        "Sophos": "information technology",
+        "Forcepoint ThreatSeeker": "information technology"
       }
     }
   }

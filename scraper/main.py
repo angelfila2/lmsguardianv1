@@ -1,5 +1,5 @@
 import asyncio
-from scraper.scraper import run_crawler
+from scraper.crawler import run_crawler
 from reputation.checker import analyze_links
 from reportgenerator.report import generatePDF, send_email_with_report
 import requests
@@ -129,8 +129,8 @@ async def batchReport():
 
 async def main():
     await batchScrape()
-    await batchAnalyse()
-    await batchReport()
+    # await batchAnalyse()
+    # await batchReport()
 
 
 if __name__ == "__main__":

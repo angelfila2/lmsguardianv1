@@ -1,13 +1,13 @@
-import asyncio
 import os
-from urllib.parse import urljoin, urlparse, parse_qs, urlencode, urlunparse
+import re
+import asyncio
+import requests
+from datetime import datetime
+from urllib.parse import urljoin
 from dotenv import load_dotenv
 from playwright.async_api import async_playwright, Page
-import requests
-from urllib.parse import urljoin, urlparse
-import aiohttp
-import filetype  # pip install filetype
-from datetime import datetime, UTC
+from .utils import *
+import hashlib
 
 load_dotenv(override=True)
 USERNAME = os.getenv("MOODLE_USERNAME")
@@ -38,29 +38,6 @@ EXCLUDED_PATH_PREFIXES = [
 ]
 
 
-def detect_file_type(url, session):
-    try:
-        response = session.get(url, stream=True, timeout=10)
-        chunk = next(response.iter_content(4096))  # Just the first chunk
-
-        kind = filetype.guess(chunk)
-        return kind.mime if kind else "unknown"
-    except Exception as e:
-        return f"Error: {e}"
-
-
-def get_mime_type(url):
-    try:
-        response = requests.head(url, allow_redirects=True, timeout=10)
-        content_type = response.headers.get("Content-Type", "unknown")
-        print(response.status_code)
-        print(response.url)
-        print(response.text)
-        return content_type
-    except requests.RequestException as e:
-        return f"Error: {e}"
-
-
 def post_scraped_link(
     session_id: int,
     module_id: int,
@@ -86,28 +63,6 @@ def post_scraped_link(
         print(f"✅ Link stored: {url_link}")
     except Exception as e:
         print(f"❌ Failed to store link: {url_link} — {e}")
-
-
-def should_exclude_url(url: str) -> bool:
-    path = urlparse(url).path
-    return any(path.startswith(prefix) for prefix in EXCLUDED_PATH_PREFIXES)
-
-
-def is_internal(url: str) -> bool:
-    return urlparse(url).netloc == MOODLE_DOMAIN
-
-
-def isExternal(url: str) -> bool:
-    return not is_internal(url) or should_exclude_url(url)
-
-
-def normalize_url(url: str) -> str:
-    parsed = urlparse(url)
-    query = parse_qs(parsed.query)
-    important_keys = {"id", "d", "cmid", "attempt"}
-    filtered_query = {k: v for k, v in query.items() if k in important_keys}
-    normalized_query = urlencode(filtered_query, doseq=True)
-    return urlunparse(parsed._replace(query=normalized_query, fragment=""))
 
 
 async def handle_login_flow(page: Page):
@@ -147,9 +102,14 @@ async def expand_internal_toggles(page: Page):
 
     for toggle in toggles:
         try:
-            await toggle.click()
+            is_expanded = await toggle.get_attribute("aria-expanded")
+            if is_expanded == "false":
+                await toggle.click()
+                print("✅ Toggle clicked to expand section.")
+            else:
+                print("⏭️ Section already expanded. Skipping.")
         except Exception as e:
-            print(f"⚠️ Failed to click toggle: {e}")
+            print(f"⚠️ Failed to handle toggle: {e}")
 
 
 async def get_content_type_with_playwright(context, url: str) -> str:
@@ -175,88 +135,37 @@ async def get_content_type_with_playwright(context, url: str) -> str:
     return content_type_result
 
 
-from urllib.parse import urlparse
-from datetime import datetime
-import os
-import requests
+async def storeTempRepoWithPlaywright(page: Page, url: str, ftype: str) -> str | None:
+    if is_possibly_malicious(url, ftype):
+        print(f"⚠️ Skipped potentially dangerous file: {url} ({ftype})")
+        return None
 
-
-def getFileExtension(ftype: str) -> str:
-    # Common MIME to extension map
-    mime_to_ext = {
-        "pdf": ".pdf",
-        "zip": ".zip",
-        "msword": ".docx",
-        "vnd.openxmlformats-officedocument.wordprocessingml.document": ".docx",
-        "vnd.openxmlformats-officedocument.presentationml.presentation": ".pptx",
-        "vnd.ms-powerpoint": ".ppt",
-        "vnd.openxmlformats-officedocument.spreadsheetml.sheet": ".xlsx",
-        "vnd.ms-excel": ".xls",
-        "octet-stream": ".bin",  # generic fallback
-        "x-executable": ".exe",
-        "x-msdownload": ".exe",
-        "x-sh": ".sh",
-        "x-python": ".py",
-        "json": ".json",
-        "x-html": ".html",
-        "x-zip-compressed": ".zip",
-        "x-rar-compressed": ".rar",
-    }
-
-    try:
-        subtype = ftype.split("/")[1]
-        return mime_to_ext.get(subtype, f".{subtype}")
-    except IndexError:
-        return ".bin"
-
-
-import os
-from datetime import datetime
-
-
-async def storeTempRepoWithPlaywright(page, url: str, ftype: str):
     if not ftype.startswith("text/html"):
         try:
-            # Go to file URL directly
             response = await page.request.get(url)
             if response.status != 200:
                 print(f"❌ Response error: {response.status} for {url}")
                 return None
 
-            fileExtension = getFileExtension(ftype)
-            temp_dir = "temp"
-            os.makedirs(temp_dir, exist_ok=True)
-            temp_path = os.path.join(temp_dir, f"tempFile{fileExtension}")
+            file_extension = getFileExtension(ftype)
+            target_dir = os.path.join("scraper", "scraper", "toProcessFurther")
+            os.makedirs(target_dir, exist_ok=True)
+
+            # 🔐 Use SHA256 hash of URL for unique filename
+            hashed = hashlib.sha256(url.encode("utf-8")).hexdigest()[:10]
+            filename = f"{hashed}{file_extension}"
+            save_path = os.path.join(target_dir, filename)
 
             content = await response.body()
-            with open(temp_path, "wb") as f:
+            with open(save_path, "wb") as f:
                 f.write(content)
 
-            print(f"📥 Stored (Playwright): {url} → {temp_path}")
-            return temp_path
+            print(f"📥 SAVED: {url} → {save_path}")
+            return save_path
 
         except Exception as e:
             print(f"❌ Failed to download via Playwright: {url} — {e}")
             return None
-
-
-from playwright.async_api import Page
-from urllib.parse import urljoin
-
-
-import re
-
-
-import re
-from playwright.async_api import Page
-
-
-import re
-from playwright.async_api import Page
-
-
-import re
-from playwright.async_api import Page
 
 
 async def resolve_final_resource_url(page: Page, url: str) -> str | None:
@@ -363,65 +272,84 @@ async def extract_links(page: Page, base_url: str, session_id: int, module_id: i
     await page.wait_for_selector("#page-content")
     anchors = await page.query_selector_all("#page-content a")
 
-    linksToCrawlFurther = []
+    links_to_crawl_further = []
     external_links = []
+    collected_links = []
 
-    link_targets = []
-    for a in anchors:
+    for anchor in anchors:
         try:
-            if await a.get_attribute("data-region") == "post-action":
+            if await anchor.get_attribute("data-region") == "post-action":
                 continue
-            href = await a.get_attribute("href")
+            href = await anchor.get_attribute("href")
             if href and not href.startswith("#"):
-                classes = await a.get_attribute("class") or ""
-                if "btn" in classes:
-                    continue  # Ignore styled buttons
+                class_attr = await anchor.get_attribute("class") or ""
+                if "btn" in class_attr:
+                    continue  # Skip navigation buttons
                 full_url = urljoin(base_url, href)
-                link_targets.append(full_url)
+                collected_links.append(full_url)
         except:
-            continue  # Skip any broken anchors
+            continue
 
-    for full_url in link_targets:
-        # If mod/resource: resolve final destination
+    for full_url in collected_links:
         if "mod/resource/view.php" in full_url:
             try:
-                real_file_url = await resolve_final_resource_url(page, full_url)
-                print(f"📎 Found file: {real_file_url} — from {full_url}")
-                if real_file_url:
-                    file_type = await get_content_type_with_playwright(
-                        page.context, real_file_url
-                    )
-                    print(f"📎 File Type: {file_type}")
-                    if not is_internal(real_file_url):
-                        external_links.append(real_file_url)
-                    else:
-                        if file_type.startswith("text/html"):
-                            linksToCrawlFurther.append(real_file_url)
-                        else:
-                            print("file to be downloaded and scanned further")
-                continue  # Skip duplicate internal check
+                resolved_url = await resolve_final_resource_url(page, full_url)
+                print(f"📎 Found file: {resolved_url} — from {full_url}")
+                if not resolved_url:
+                    continue
+
+                if should_exclude_url(resolved_url):
+                    print(f"🚫 Skipping excluded internal URL: {resolved_url}")
+                    continue
+
+                if not is_internal(resolved_url):
+                    print("EXTERNAL FILE URL DETECTED")
+                    external_links.append(resolved_url)
+                    post_scraped_link(session_id, module_id, resolved_url)
+                    continue
+
+                mime_type = await get_content_type_with_playwright(
+                    page.context, resolved_url
+                )
+                print(f"📎 File Type: {mime_type}")
+
+                if mime_type.startswith("text/html"):
+                    links_to_crawl_further.append(resolved_url)
+                else:
+                    if not is_possibly_malicious(resolved_url, mime_type):
+                        await storeTempRepoWithPlaywright(page, resolved_url, mime_type)
+                        print("📥 Internal file saved for processing")
+
+                continue
             except Exception as e:
                 print(f"❌ Failed to resolve file: {e}")
-
-        # General internal/external handling
-        file_type = await get_content_type_with_playwright(page.context, full_url)
+                continue
 
         if should_exclude_url(full_url):
             print(f"🚫 Skipping excluded internal URL: {full_url}")
             continue
 
-        if is_internal(full_url):
-            print(f"INTERNAL URL: {file_type} — {full_url}")
-            if file_type.startswith("text/html"):
-                linksToCrawlFurther.append(full_url)
-        else:
+        if not is_internal(full_url):
             print("EXTERNAL URL DETECTED")
             external_links.append(full_url)
             post_scraped_link(session_id, module_id, full_url)
+            continue
 
-    print(f"[INTERNAL LINKS] Found {len(linksToCrawlFurther)} at: {base_url}")
+        mime_type = await get_content_type_with_playwright(page.context, full_url)
+
+        if not is_possibly_malicious(full_url, mime_type):
+            await storeTempRepoWithPlaywright(page, full_url, mime_type)
+
+        print(f"INTERNAL URL: {mime_type} — {full_url}")
+
+        if mime_type.startswith("text/html"):
+            links_to_crawl_further.append(full_url)
+        else:
+            print("📥 Internal file saved for processing")
+
+    print(f"[INTERNAL LINKS] Found {len(links_to_crawl_further)} at: {base_url}")
     print(f"[EXTERNAL LINKS] Found {len(external_links)} at: {base_url}")
-    return linksToCrawlFurther
+    return links_to_crawl_further
 
 
 async def crawl_page(page: Page, url: str, session_id: int, module_id: int):
@@ -440,41 +368,44 @@ async def crawl_page(page: Page, url: str, session_id: int, module_id: int):
     return await extract_links(page, url, session_id, module_id)
 
 
-async def run_crawler(start_url: str, session_id: int, module_id: int):
-    async with async_playwright() as p:
-        browser = await p.chromium.launch(headless=False)
+async def run_crawler(starting_page: str, session_id: int, module_id: int):
+    async with async_playwright() as playwright:
+        browser = await playwright.chromium.launch(headless=False)
         context = await browser.new_context()
         context.set_default_timeout(60000)
         page = await context.new_page()
 
-        to_visit = [start_url]
-        visited_normalized = set()
-        visited_original = []
+        pages_to_check = [starting_page]
+        pages_already_seen = set()
+        pages_visited = []
 
-        while to_visit:
-            current = to_visit.pop(0)
-            norm = normalize_url(current)
-            if norm in visited_normalized:
+        while pages_to_check:
+            current_page = pages_to_check.pop(0)
+            clean_page_url = normalize_url(current_page)
+
+            if clean_page_url in pages_already_seen:
                 continue
-            visited_normalized.add(norm)
-            print("at run crawler")
-            print("going to crawl_age")
 
-            new_links = await crawl_page(page, current, session_id, module_id)
-            visited_original.append(current)
+            pages_already_seen.add(clean_page_url)
+            print(f"🔍 Checking: {current_page}")
 
-            for link in new_links:
-                norm_link = normalize_url(link)
-                if norm_link not in visited_normalized:
-                    to_visit.append(link)
+            found_links = await crawl_page(page, current_page, session_id, module_id)
+            pages_visited.append(current_page)
+
+            for link in found_links:
+                clean_link = normalize_url(link)
+                print(f"🔗 Cleaned link: {clean_link}")
+
+                if clean_link not in pages_already_seen:
+                    pages_to_check.append(clean_link)
 
             await asyncio.sleep(0.5)
 
         await browser.close()
 
-        print("\n✅ Crawl complete.")
-        print(f"🔄 Total unique pages visited: {len(visited_original)}")
-        for url in visited_original:
+        print("\n✅ All done crawling.")
+        print(f"📌 Pages visited: {len(pages_visited)}")
+        for url in pages_visited:
             print(f" - {url}")
 
 
