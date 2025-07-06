@@ -3,14 +3,6 @@ from typing import Optional
 from datetime import datetime
 
 
-class HighRiskLink(BaseModel):
-    url: str
-    category: Optional[str]
-    score: Optional[float]
-    date: datetime
-    scrapeID: int
-
-    model_config = {"from_attributes": True}
 
 
 class ModuleId(BaseModel):
@@ -40,26 +32,6 @@ class ScraperSessionCreate(BaseModel):
 
 class ScraperSessionResponse(ScraperSessionCreate):
     session_id: int
-
     model_config = {"from_attributes": True}
 
 
-class ScrapedContentCreate(BaseModel):
-    module_id: int
-    session_id: int
-    scraped_at: Optional[datetime] = None
-    url_link: str
-    risk_category: Optional[str] = None
-    risk_score: Optional[float] = None
-    content_location: Optional[str] = None
-    is_paywall: Optional[bool] = False
-    apa7: Optional[str] = None
-
-    model_config = {"from_attributes": True}
-
-
-class UnitCoordinatorOut(BaseModel):
-    uc_id: int
-    full_name: str
-    email: str
-    model_config = {"from_attributes": True}

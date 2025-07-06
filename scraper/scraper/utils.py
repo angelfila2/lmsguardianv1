@@ -51,13 +51,46 @@ def normalize_url(url: str) -> str:
     return urlunparse(parsed._replace(query=normalized_query, fragment=""))
 
 
+ALLOWED_INTERNAL_DOMAIN = "10.51.33.25"
+
+
 def is_internal(url: str) -> bool:
-    return urlparse(url).netloc == MOODLE_DOMAIN
+    try:
+        parsed = urlparse(url)
+        return parsed.hostname == ALLOWED_INTERNAL_DOMAIN
+    except:
+        return False
+
+
+from urllib.parse import urlparse
+
+IGNORED_INTERNAL_DOMAINS = [
+    "www.murdoch.edu.au",
+    "library.murdoch.edu.au",
+    "mymurdoch.murdoch.edu.au",
+]
 
 
 def should_exclude_url(url: str) -> bool:
-    path = urlparse(url).path
-    return any(path.startswith(prefix) for prefix in EXCLUDED_PATH_PREFIXES)
+    try:
+        parsed = urlparse(url)
+        domain = parsed.hostname or ""
+        path = parsed.path or ""
+
+        # Already existing logic
+        for prefix in EXCLUDED_PATH_PREFIXES:
+            if path.startswith(prefix):
+                return True
+
+        # NEW: skip known Murdoch-wide internal domains
+        for ignored in IGNORED_INTERNAL_DOMAINS:
+            if ignored in domain:
+                return True
+
+        return False
+    except Exception as e:
+        print(f"❌ Error parsing URL for exclusion: {e}")
+        return True  # safer to exclude if unsure
 
 
 def is_possibly_malicious(url: str, mime_type: str) -> bool:

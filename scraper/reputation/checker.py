@@ -1,67 +1,80 @@
 import os
+import time
+import json
 import requests
+import dns.resolver
 from dotenv import load_dotenv
 from bs4 import BeautifulSoup
-import time
-import os
-import requests
-import json
 from urllib.parse import urlparse
+import base64
+
+# --------------------------------
+# 🔐 API Keys & Config
+# --------------------------------
+load_dotenv(override=True)
+VT_API_KEY = (
+    os.getenv("VT_API_KEY")
+    or "0321311ce4e6139cf90dd29e3265b4299d6d0379d8178b3baeb90bcf49133f00"
+)
+SAFE_BROWSING_API_KEY = os.getenv("GOOGLE_SAFE_KEY")
+
+VT_URL_REPORT = "https://www.virustotal.com/vtapi/v2/url/report"
+VT_URL_SCAN = "https://www.virustotal.com/api/v3/urls"
+VT_DOMAIN_REPORT = "https://www.virustotal.com/api/v3/domains/"
 
 
+# --------------------------------
+# 🔎 Utilities
+# --------------------------------
 def extract_domain_from_url(url: str) -> str:
     try:
         if not url.startswith(("http://", "https://")):
-            url = "http://" + url  # Default to http if no scheme
+            url = "http://" + url
         parsed_url = urlparse(url)
         domain = parsed_url.netloc
-        if domain.startswith("www."):
-            domain = domain[4:]
-        return domain
+        return domain[4:] if domain.startswith("www.") else domain
     except Exception as e:
         print(f"❌ Error parsing URL: {e}")
         return ""
 
 
-# print("gogo")
-# print(extract_domain_from_url("www.pornhub.com/videos"))  # Output: pornhub.com
-
-
-API = "0321311ce4e6139cf90dd29e3265b4299d6d0379d8178b3baeb90bcf49133f00"  # Replace with your API key
-
-
+# --------------------------------
+# 🧪 VirusTotal Domain Scan (v3)
+# --------------------------------
 def get_report_given_domain(domain):
-    base_url = "https://www.virustotal.com/api/v3/domains/"
-    headers = {"x-apikey": API}
-
-    formatted_url = f"{base_url}/{domain}"
-    response = requests.get(formatted_url, headers=headers)
+    headers = {"x-apikey": VT_API_KEY}
+    response = requests.get(f"{VT_DOMAIN_REPORT}/{domain}", headers=headers)
 
     if response.status_code == 200:
-        json_response = response.json()
-        return json_response
+        return response.json()
     else:
-        print(f"❌ Request failed with status code {response.status_code}")
+        print(f"❌ Domain report failed with status code {response.status_code}")
+        return None
+
+
+def getscanresults(url):
+    headers = {"x-apikey": VT_API_KEY}
+    response = requests.get(f"{VT_URL_SCAN}/{url=}", headers=headers)
+
+    if response.status_code == 200:
+        return response.json()
+    else:
+        print(f"❌ Domain report failed with status code {response.status_code}")
         return None
 
 
 def getAnalysisOfExternalLinks(domain: str):
-    reports_file = "output/reports.json"  # Ensure this directory exists
+    reports_file = "scraper/reputation/output/reports.json"
+    # report = get_report_given_domain(domain)
+    report = getscanresults(domain)
 
-    # Fetch report
-    report = get_report_given_domain(domain)
     if not report:
         return None
 
-    # Save raw JSON to file
     os.makedirs(os.path.dirname(reports_file), exist_ok=True)
     with open(reports_file, "w") as f:
         json.dump(report, f, indent=2)
 
-    print(f"✅ Saved report to {reports_file}")
-
-    # Extract and print summary
-    print("\ndomain,reputation,categories")
     try:
         attributes = report["data"]["attributes"]
         domain = report["data"]["id"]
@@ -69,97 +82,65 @@ def getAnalysisOfExternalLinks(domain: str):
         categories = attributes.get("categories", {})
         category_values = ", ".join(categories.values())
 
-        print("=== Analysis ===")
-        print(f"Domain - {domain}")
-        print(f"Reputation score - {reputation}")
-        print(f"Category - {category_values}")
-        print(f"{domain},{reputation},{category_values}\n")
-        return domain, reputation, category_values
+        print("\n=== VirusTotal Analysis ===")
+        print(f"Domain: {domain}")
+        print(f"Reputation: {reputation}")
+        print(f"Categories: {category_values}\n")
 
+        return domain, reputation, category_values
     except Exception as e:
-        print(f"❌ Error processing the report: {e}")
+        print(f"❌ Error processing domain report: {e}")
         return None
 
 
-# domain_to_check = "pornhub.com"  # Change this to your target domain
-# a, b, c = getAnalysisOfExternalLinks(domain_to_check)
-# print(f"a = {a}")
-# print(f"b = {b}")
-# print(f"c = {c}")
-
-
-load_dotenv(override=True)
-SAFE_BROWSING_API_KEY = os.getenv("GOOGLE_SAFE_KEY")
-
-
-# def get_external_links():
-#     try:
-#         response = requests.get("http://127.0.0.1:8000/risks")
-#         response.raise_for_status()
-#         return response.json()  # ✅ this gives you the list of dicts
-#     except Exception as e:
-#         return []
-
-
-API_KEY = "0321311ce4e6139cf90dd29e3265b4299d6d0379d8178b3baeb90bcf49133f00"
-VT_URL_REPORT = "https://www.virustotal.com/vtapi/v2/url/report"
-VT_URL_SCAN = "https://www.virustotal.com/vtapi/v2/url/scan"
-
-
+# --------------------------------
+# 🧪 VirusTotal URL Scan (v2)
+# --------------------------------
 def get_url_report(target_url):
-    params = {"apikey": API_KEY, "resource": target_url}
+    params = {"apikey": VT_API_KEY, "resource": target_url}
     try:
-        r = requests.get(VT_URL_REPORT, params=params)
-        return r.json()
+        return requests.get(VT_URL_REPORT, params=params).json()
     except Exception as e:
         return {"error": str(e)}
 
 
 def submit_url_for_scan(target_url):
-    data = {"apikey": API_KEY, "url": target_url}
+    data = {"apikey": VT_API_KEY, "url": target_url}
     try:
-        r = requests.post(VT_URL_SCAN, data=data)
-        return r.json()
+        return requests.post(VT_URL_SCAN, data=data).json()
     except Exception as e:
         return {"error": str(e)}
 
 
 def get_or_scan_url(target_url, wait_for_fresh=False):
-    print(f"🔍 Checking existing VirusTotal scan for: {target_url}")
+    print(f"🔍 Checking VirusTotal for: {target_url}")
     report = get_url_report(target_url)
 
     if report.get("response_code") == 1:
-        print(
-            f"✅ Cached scan found. Detections: {report['positives']}/{report['total']}"
-        )
+        print(f"✅ Cached: {report['positives']}/{report['total']} detections")
         return report
 
-    print("❌ No recent scan found. Submitting URL to VirusTotal...")
+    print("❌ No cached report. Submitting for scan...")
     scan_response = submit_url_for_scan(target_url)
-    scan_id = scan_response.get("scan_id")
 
     if not wait_for_fresh:
-        print("📤 URL submitted for scanning. Results will be available shortly.")
+        print("📤 Submitted. Results will be ready soon.")
         return scan_response
 
-    # Wait for scan results
-    print("⏳ Waiting for scan to complete...")
-    for i in range(10):
+    print("⏳ Waiting for fresh scan...")
+    for _ in range(10):
         time.sleep(10)
         report = get_url_report(target_url)
         if report.get("response_code") == 1:
-            print(
-                f"✅ Scan complete. Detections: {report['positives']}/{report['total']}"
-            )
+            print(f"✅ Scan complete: {report['positives']}/{report['total']}")
             return report
-    print("⚠️ Timed out waiting for scan results.")
-    return {"error": "Timed out"}
+
+    return {"error": "Timeout waiting for scan"}
 
 
-# url = "https://www.xvideos.com/tags/xxxvideo"
-# get_or_scan_url(url, wait_for_fresh=True)
-
-
+# --------------------------------
+# 🔐 Google Safe Browsing
+# --------------------------------
 def check_safe_browsing(url):
     payload = {
         "client": {"clientId": "lms-guardian", "clientVersion": "1.0"},
@@ -186,59 +167,177 @@ def check_safe_browsing(url):
         result = response.json()
 
         if result.get("matches"):
-            # Grab the first threat type as the risk label
-            threat_type = result["matches"][0].get("threatType", "malicious")
-            return threat_type.lower()  # e.g., "malware", "unwanted_software"
-        else:
-            return "clean"
+            return result["matches"][0].get("threatType", "malicious").lower()
+        return "clean"
     except Exception as e:
-        print(f"Error checking {url}: {e}")
+        print(f"❌ Safe Browsing error: {e}")
         return "error"
 
 
-# main method in here
+def vt_v3_get_url_info(url):
+    url_id = base64.urlsafe_b64encode(url.encode()).decode().strip("=")
+    endpoint = f"https://www.virustotal.com/api/v3/urls/{url_id}"
+
+    headers = {"x-apikey": VT_API_KEY}
+    response = requests.get(endpoint, headers=headers)
+
+    if response.status_code == 200:
+        data = response.json()
+        stats = data["data"]["attributes"].get("categories", {})
+        reputation = data["data"]["attributes"].get("reputation", 0)
+
+        category_values = list(stats.values())
+        categories = ", ".join(category_values)
+
+        print(f"📊 reputation - {reputation}")
+        print(f"🏷️ categories - {categories}")
+        print(f"✅ Got report for {url}")
+        return reputation, categories
+
+    else:
+        print(f"❌ Failed to get report: {response.status_code}")
+        print(response.text)
+        return None
+
+
+VT_API_KEY = "0321311ce4e6139cf90dd29e3265b4299d6d0379d8178b3baeb90bcf49133f00"
+
+
+def vt_v3_get_url_info(url):
+    url_id = base64.urlsafe_b64encode(url.encode()).decode().strip("=")
+    endpoint = f"https://www.virustotal.com/api/v3/urls/{url_id}"
+
+    headers = {"x-apikey": VT_API_KEY}
+    response = requests.get(endpoint, headers=headers)
+
+    if response.status_code == 200:
+        data = response.json()
+        stats = data["data"]["attributes"]["categories"]
+        reputation = data["data"]["attributes"]["reputation"]
+        print(stats)
+        category_values = list(stats.values())
+        category_string = ", ".join(category_values)
+        print(category_string)
+
+        print(f"reputation - {reputation}")
+        print(f"✅ Got report for {url}")
+        return data
+    else:
+        print(f"❌ Failed to get report: {response.status_code}")
+        print(response.text)
+        return None
+
+
+# --------------------------------
+# 🧠 Main Risk Analysis
+# --------------------------------
 def analyze_links(scrapeID: int, url: str):
     try:
-        # Extract domain and run external risk analysis
-        domainOfURL = extract_domain_from_url(url)
-        print(f"Extracted domain: {domainOfURL}")
+        result = vt_v3_get_url_info(url)
 
-        domain, score, category = getAnalysisOfExternalLinks(
-            domainOfURL
-        )  # e.g., "example.com", 0.85, "malware"
+        # If not found, submit for scanning
+        if result is None:
+            print(f"📭 No report for {url}, submitting for scan...")
+            scan_result = scan_url_v3(url)
+            time.sleep(15)
+            if scan_result:
+                data = scan_result["data"]["attributes"]
+                reputation = data.get("reputation", 0)
+                categories = data.get("categories", {})
+                category = ", ".join(categories.values())
+            else:
+                print(f"❌ Failed to retrieve scan result for {url}")
+                return
+        else:
+            data = result["data"]["attributes"]
+            reputation = data.get("reputation", 0)
+            categories = data.get("categories", {})
+            category = ", ".join(categories.values())
 
-        # Send to FastAPI server with separate risk_score and risk_category
-        update_url = f"http://127.0.0.1:8000/updaterisk/{scrapeID}"
+        # Update the local DB via FastAPI backend
+        update_url = f"http://127.0.0.1:8000/scrapedcontents/updaterisk/{scrapeID}"
         response = requests.put(
-            update_url, params={"score": score, "category": category}
+            update_url, params={"score": reputation, "category": category}
         )
         response.raise_for_status()
-
-        print(
-            f"✅ SUCCESS: Updated ID {scrapeID} with score={score}, category={category}"
-        )
+        print(f"✅ Updated ID {scrapeID} → score={reputation}, category={category}")
 
     except Exception as e:
         print(f"❌ ERROR: Failed to update {scrapeID} ({url}) — {e}")
 
 
+# --------------------------------
+# 🧼 Content Filtering via DNS
+# --------------------------------
 def contentFiltering(url):
     resolver = dns.resolver.Resolver()
     resolver.nameservers = ["1.1.1.3"]  # Cloudflare Family DNS
-
     try:
-        answer = resolver.resolve(url, "A")
-        # print(answer)
-        # print(f"✅ {url} resolved — likely family-friendly.")
+        resolver.resolve(url, "A")
         return True
     except (dns.resolver.NXDOMAIN, dns.resolver.NoAnswer, dns.resolver.Timeout):
-        # print(f"🚫 {url} blocked by Cloudflare DNS — not family-friendly.")
         return False
 
 
-# # Test
-# print(contentFiltering("https://www.xvideos.com/tags/xxxvideo"))
-# print(contentFiltering("https://optimaxaccess.iges.com/standard-gamble-sg/"))
-# print(check_safe_browsing("https://www.xvideos.com/tags/pornhub"))
-# print(check_safe_browsing("https://www.xvideos.com/tags/xxxvideo"))
-# print(check_safe_browsing("https://optimaxaccess.iges.com/standard-gamble-sg/"))
+# --------------------------------
+# 🧪 Test Section
+# --------------------------------
+
+
+def scan_url_v3(target_url):
+    headers = {
+        "x-apikey": VT_API_KEY,
+        "Content-Type": "application/x-www-form-urlencoded",
+    }
+
+    data = f"url={target_url}"
+    scan_response = requests.post(VT_URL_SCAN, headers=headers, data=data)
+
+    if scan_response.status_code != 200:
+        print(f"❌ Failed to submit URL: {scan_response.status_code}")
+        return None
+
+    analysis_id = scan_response.json()["data"]["id"]
+    print(f"📤 URL submitted. Analysis ID: {analysis_id}")
+
+    # ✅ Correct endpoint for polling result
+    analysis_url = f"https://www.virustotal.com/api/v3/analyses/{analysis_id}"
+
+    for i in range(10):
+        time.sleep(10)
+        report_response = requests.get(analysis_url, headers=headers)
+
+        if report_response.status_code == 200:
+            status = report_response.json()["data"]["attributes"]["status"]
+            if status == "completed":
+                print("✅ Scan complete.")
+                return report_response.json()
+            else:
+                print(f"⏳ Still scanning... Attempt {i+1}/10")
+        else:
+            print(f"⚠️ Error fetching scan report: {report_response.status_code}")
+
+    print("❌ Timed out waiting for scan result.")
+    return None
+
+
+def save_report_to_file(report, filename="output/url_scan_report.json"):
+    os.makedirs(os.path.dirname(filename), exist_ok=True)
+    with open(filename, "w") as f:
+        json.dump(report, f, indent=2)
+    print(f"✅ Saved scan report to {filename}")
+
+
+# if __name__ == "__main__":
+# # Example usage
+# url_to_scan = "https://www.example.com"  # Replace with your target URL
+# result = scan_url_v3(url_to_scan)
+# if result:
+#     save_report_to_file(result)
+# test_url = "https://www.xvideos.com/tags/xxxvideo"
+# analyze_links(184, test_url)
+
+# Other utilities:
+# print(contentFiltering("www.xvideos.com"))
+# print(check_safe_browsing("https://example.com"))
+# print(get_or_scan_url("https://malicious.example", wait_for_fresh=True))

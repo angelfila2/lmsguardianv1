@@ -6,8 +6,10 @@ from datetime import datetime
 from urllib.parse import urljoin
 from dotenv import load_dotenv
 from playwright.async_api import async_playwright, Page
-from .utils import *
+from scraper.utils import *
 import hashlib
+import pytz
+from scraper.downloadfiles import *
 
 load_dotenv(override=True)
 USERNAME = os.getenv("MOODLE_USERNAME")
@@ -47,18 +49,21 @@ def post_scraped_link(
     content_location: str = None,
     apa7: str = None,
 ):
+    sg = pytz.timezone("Asia/Singapore")
+    formattedSGtime = datetime.now(sg)
+    print(formattedSGtime)
     payload = {
         "module_id": module_id,
         "session_id": session_id,
         "url_link": url_link,
-        "scraped_at": datetime.utcnow().isoformat(),
+        "scraped_at": formattedSGtime.isoformat(),
         "risk_status": risk_status,
         "is_paywall": is_paywall,
         "content_location": content_location,
         "apa7": apa7,
     }
     try:
-        response = requests.post("http://127.0.0.1:8000/scraped-contents", json=payload)
+        response = requests.post("http://127.0.0.1:8000/scrapedcontents", json=payload)
         response.raise_for_status()
         print(f"✅ Link stored: {url_link}")
     except Exception as e:
@@ -66,29 +71,54 @@ def post_scraped_link(
 
 
 async def handle_login_flow(page: Page):
-    print(USERNAME)
-    print(PASSWORD)
+    print("Starting login flow...")
+    print("USERNAME:", USERNAME)
+    print("PASSWORD:", PASSWORD)
+
     if "login" in page.url:
-        print("🔐 Login page detected.")
+        print("?? Login page detected.")
+
+        # ? Ensure full page load before interacting
+        await page.wait_for_load_state("networkidle")
         await page.wait_for_selector('input[name="username"]')
         await page.wait_for_selector('input[name="password"]')
 
+        # ?? Screenshot before filling
+        await page.screenshot(path="step1_login_page.png")
+
+        # Fill credentials
         await page.fill('input[name="username"]', USERNAME or "")
         await page.fill('input[name="password"]', PASSWORD or "")
 
+        # ?? Screenshot after filling credentials
+        await page.screenshot(path="step2_filled_credentials.png")
+
+        # Try clicking the login button (supports both button types)
         try:
             await page.click('button[type="submit"]')
-        except:
-            await page.click("input#loginbtn")
+        except Exception:
+            try:
+                await page.click("input#loginbtn")
+            except Exception as e:
+                print(f"? Could not click login button: {e}")
+                await page.screenshot(path="step2b_click_error.png")
+                return
 
+        # Wait for next page to load
         await page.wait_for_load_state("networkidle")
+        await page.screenshot(path="step3_after_submit.png")
 
+        # Check if login was successful
         if "login" in page.url:
-            print("❌ Login failed. Still on login page.")
+            print("? Login failed. Still on login page.")
+            html = await page.content()
+            with open("login_failed_dump.html", "w", encoding="utf-8") as f:
+                f.write(html)
         else:
-            print("✅ Login successful. URL:", page.url)
+            print(f"? Login successful. URL: {page.url}")
+            await page.screenshot(path="step4_login_success.png")
     else:
-        print("✅ Already logged in or no login required.")
+        print("? Already logged in or no login required.")
 
 
 async def expand_internal_toggles(page: Page):
@@ -357,12 +387,22 @@ async def crawl_page(page: Page, url: str, session_id: int, module_id: int):
     try:
         # await page.goto(url, timeout=10000)
         await page.goto(url, wait_until="load")
+
     except:
         print(f"⚠️ Failed to load: {url}")
         return []
 
     if "login" in page.url or "Continue" in await page.content():
         await handle_login_flow(page)
+    await page.goto(url, wait_until="load")
+    meta_tags = await page.query_selector_all("meta[content]")
+    for tag in meta_tags:
+        content_val = await tag.get_attribute("content")
+        print(f"✅ Meta content value: {content_val}")
+    title = await page.title()
+    print(f"📄 Page title: {title}")
+    course_id = await page.evaluate("() => window.M && M.cfg && M.cfg.courseId")
+    print(f"🎯 Course ID (from M.cfg): {course_id}")
 
     await expand_internal_toggles(page)
     return await extract_links(page, url, session_id, module_id)
@@ -390,6 +430,7 @@ async def run_crawler(starting_page: str, session_id: int, module_id: int):
             print(f"🔍 Checking: {current_page}")
 
             found_links = await crawl_page(page, current_page, session_id, module_id)
+
             pages_visited.append(current_page)
 
             for link in found_links:
@@ -400,25 +441,13 @@ async def run_crawler(starting_page: str, session_id: int, module_id: int):
                     pages_to_check.append(clean_link)
 
             await asyncio.sleep(0.5)
-
+        # second loop
+        downloaded_links = downloadFilesAndCheck()
+        for link in downloaded_links:
+            post_scraped_link(session_id,module_id,link)
         await browser.close()
 
         print("\n✅ All done crawling.")
         print(f"📌 Pages visited: {len(pages_visited)}")
         for url in pages_visited:
             print(f" - {url}")
-
-
-def get_module_ids():
-    try:
-        response = requests.get("http://127.0.0.1:8000/moduleid")
-        response.raise_for_status()
-        return response.json()  # this will be a list of ints like [1, 2, 3]
-    except Exception as e:
-        print(f"❌ Failed to fetch module IDs: {e}")
-        return []
-
-
-def getLatestRiskSessions():
-    response = requests.get("http://127.0.0.1:8000/risks")
-    return response.json()

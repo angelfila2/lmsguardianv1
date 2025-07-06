@@ -20,7 +20,7 @@ def getAllCourseId():
 
 def getRecentSessionScan():
     try:
-        res = requests.get("http://127.0.0.1:8000/risks")
+        res = requests.get("http://127.0.0.1:8000/scrapedcontents/risks")
         res.raise_for_status()
         return res.json()
     except Exception as e:
@@ -30,7 +30,7 @@ def getRecentSessionScan():
 
 def getAllHighRisks():
     try:
-        res = requests.get("http://127.0.0.1:8000/highrisks")
+        res = requests.get("http://127.0.0.1:8000/scrapedcontents/highrisks")
         res.raise_for_status()
         return res.json()
     except Exception as e:
@@ -45,7 +45,9 @@ def startsession():
         "error_log": None,
     }
     try:
-        res = requests.post("http://127.0.0.1:8000/newsession", json=payload)
+        res = requests.post(
+            "http://127.0.0.1:8000/scrapersession/newsession", json=payload
+        )
         res.raise_for_status()
         session_data = res.json()
         print(f"Scraper session created: {session_data['session_id']}")
@@ -111,14 +113,14 @@ async def batchReport():
     # ✅ Example usage: Print per-module grouped links
     for module_id, links in grouped_by_module.items():
         print(f"\n Module ID: {module_id} ({len(links)} links)")
-        moduleInfo = requests.get(f"http://127.0.0.1:8000/module/{module_id}").json()
+        moduleInfo = requests.get(f"http://127.0.0.1:8000/modules/{module_id}").json()
         uc_id = moduleInfo["uc_id"]
         unitCoordinatorInfo = requests.get(
-            f"http://127.0.0.1:8000/unitcoordinator/{uc_id}"
+            f"http://127.0.0.1:8000/unitCoordinator/{uc_id}"
         ).json()
         unitCode = moduleInfo["unit_code"]
         unitCoordinatorName = unitCoordinatorInfo["full_name"]
-        baseUrl = f"http://3.107.195.248/moodle/course/view.php?id={module_id+1}"
+        baseUrl = f"http://10.51.33.25//moodle/course/view.php?id={module_id+1}"
         report_path = generatePDF(unitCoordinatorName, unitCode, links, baseUrl)
 
         unitCoordinatorEmail = unitCoordinatorInfo["email"]
@@ -129,8 +131,8 @@ async def batchReport():
 
 async def main():
     await batchScrape()
-    # await batchAnalyse()
-    # await batchReport()
+    await batchAnalyse()
+    await batchReport()
 
 
 if __name__ == "__main__":

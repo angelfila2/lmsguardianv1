@@ -1,12 +1,16 @@
 from fastapi import FastAPI
-from . import models
-from .database import engine
-from .routes import router
+from app.routes.unitCoordinator import router as unitCoordinatorRouter
+from app.routes.module import router as moduleRouter
+from app.routes.scrapedContent import router as scrapedContentRouter
+from app.routes.scrapedSession import router as scrapedSessionRouter
+from app.database.database import Base, engine
+
+# Create all tables
+Base.metadata.create_all(bind=engine)
 
 app = FastAPI()
 
-# Auto-create tables from models (already done if seeded manually)
-models.Base.metadata.create_all(bind=engine)
-
-# Add routes
-app.include_router(router)
+app.include_router(unitCoordinatorRouter)
+app.include_router(moduleRouter)
+app.include_router(scrapedContentRouter)
+app.include_router(scrapedSessionRouter)

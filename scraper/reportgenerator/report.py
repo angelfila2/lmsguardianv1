@@ -1,5 +1,4 @@
 import os
-import requests
 import smtplib
 from datetime import datetime, UTC
 from typing import List
@@ -8,12 +7,22 @@ from email.message import EmailMessage
 from dotenv import load_dotenv
 import pytz
 
-load_dotenv()
+load_dotenv(override=True)
 
 
-def generatePDF(ucname: str, moduleCode: str, urls: List[dict],baseUrl:str) -> str:
+def format_scraped_at(raw_ts):
+    try:
+        dt = datetime.fromisoformat(raw_ts)
+        # return dt.strftime("%-d %B %Y, %-I:%M %p")  # Linux/macOS
+        return dt.strftime("%#d %B %Y, %#I:%M %p")  # Use this on Windows
+    except Exception:
+        return raw_ts  # fallback to raw timestamp if broken
+
+
+def generatePDF(ucname: str, moduleCode: str, urls: List[dict], baseUrl: str) -> str:
     # Load Word template
-    template_path = r"C:\Users\Asus\OneDrive - Murdoch University\Desktop\LMSGuardian\scraper\reportgenerator\templateReportUC.docx"
+    print(urls)
+    template_path = r"scraper\reportgenerator\templateReportUC.docx"
     doc = Document(template_path)
 
     # Replace placeholders
@@ -35,15 +44,17 @@ def generatePDF(ucname: str, moduleCode: str, urls: List[dict],baseUrl:str) -> s
         for link in urls:
             row = table.add_row().cells
             row[0].text = link.get("url_link", "")
-            row[1].text = link.get("risk_status", "")
-            row[2].text = link.get("scraped_at", "")
+            row[1].text = str(link.get("risk_score", ""))
+            row[2].text = link.get("risk_category", "")
+            raw_ts = link.get("scraped_at", "")
+            row[3].text = format_scraped_at(raw_ts)
 
     # Save with timestamped filename
     sg = pytz.timezone("Asia/Singapore")
     safe_code = datetime.now(sg).strftime("%Y-%m-%d")
-    print(safe_code + "_"+moduleCode)
+    print(safe_code + "_" + moduleCode)
     filename = f"{safe_code}_{moduleCode}_report.docx"
-    output_dir = r"C:\Users\Asus\OneDrive - Murdoch University\Desktop\LMSGuardian\scraper\reportgenerator\report"
+    output_dir = r"scraper\reportgenerator\report"
     os.makedirs(output_dir, exist_ok=True)
     output_path = os.path.join(output_dir, filename)
     doc.save(output_path)
@@ -112,11 +123,19 @@ if __name__ == "__main__":
     test_email = "syafiqwork2023@gmail.com"
     test_module = "ICT302"
     test_uc = "Peter Cole"
-    base_url="http://3.107.195.248/moodle/course/view.php?id=2"
+    base_url = "http://3.107.195.248/moodle/course/view.php?id=2"
     test_urls = [
-        {"url_link": "https://example.com", "risk_status": "phishing", "scraped_at": "2025-06-14"},
-        {"url_link": "https://another.com", "risk_status": "clean", "scraped_at": "2025-06-14"},
+        {
+            "url_link": "https://example.com",
+            "risk_score": "phishing",
+            "scraped_at": "2025-06-14",
+        },
+        {
+            "url_link": "https://another.com",
+            "risk_status": "clean",
+            "scraped_at": "2025-06-14",
+        },
     ]
 
-    report_path = generatePDF(test_uc, test_module, test_urls,base_url)
+    report_path = generatePDF(test_uc, test_module, test_urls, base_url)
     send_email_with_report(test_email, report_path, test_module, test_uc)
