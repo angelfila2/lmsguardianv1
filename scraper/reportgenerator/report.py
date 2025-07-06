@@ -22,7 +22,7 @@ def format_scraped_at(raw_ts):
 def generatePDF(ucname: str, moduleCode: str, urls: List[dict], baseUrl: str) -> str:
     # Load Word template
     print(urls)
-    template_path = r"scraper\reportgenerator\templateReportUC.docx"
+    template_path = os.path.join("scraper", "reportgenerator", "templateReportUC.docx")
     doc = Document(template_path)
 
     # Replace placeholders

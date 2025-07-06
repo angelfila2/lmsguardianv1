@@ -443,7 +443,9 @@ async def run_crawler(starting_page: str, session_id: int, module_id: int):
             await asyncio.sleep(0.5)
         # second loop
         downloaded_links = downloadFilesAndCheck()
-        for link in downloaded_links:
+        unique_links = list(set(downloaded_links))
+
+        for link in unique_links:
             post_scraped_link(session_id,module_id,link)
         await browser.close()
 

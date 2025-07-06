@@ -6,9 +6,10 @@ from oletools.olevba3 import VBA_Parser
 import fitz  # PyMuPDF
 import subprocess
 import shutil
+from urllib.parse import urlparse
 
 # ---------- Config ----------
-TO_PROCESS_FURTHER_PATH = r"scraper\scraper\toProcessFurther"
+TO_PROCESS_FURTHER_PATH = "scraper/scraper/toProcessFurther"
 SUPPORTED_EXTENSIONS = {".docx", ".doc", ".pdf", ".zip"}
 
 
@@ -25,7 +26,7 @@ def extract_links_from_docx(filepath):
             if "http" in str(rel.target_ref):
                 links.append(str(rel.target_ref))
     except Exception as e:
-        print(f"⚠️ Error reading .docx file {filepath}: {e}")
+        print(f"[WARNING] Error reading .docx file {filepath}: {e}")
     return links
 
 
@@ -40,7 +41,7 @@ def extract_links_from_doc(filepath):
                     if "http" in line or "www." in line:
                         links.append(line.strip())
     except Exception as e:
-        print(f"⚠️ Error reading .doc file {filepath}: {e}")
+        print(f"[WARNING] Error reading .doc file {filepath}: {e}")
     finally:
         if vba:
             vba.close()
@@ -62,7 +63,7 @@ def extract_links_from_pdf(filepath):
                     links.append(uri.strip())
         doc.close()
     except Exception as e:
-        print(f"⚠️ Error reading PDF file {filepath}: {e}")
+        print(f"[WARNING] Error reading PDF file {filepath}: {e}")
     return links
 
 
@@ -88,7 +89,7 @@ def extract_zip_recursive(zip_path, parent_display_path, all_links):
                             file_links = scan_single_file(fpath)
                             all_links[display_path] = file_links
     except Exception as e:
-        print(f"⚠️ Failed to handle ZIP {zip_path}: {e}")
+        print(f"[WARNING] Failed to handle ZIP {zip_path}: {e}")
 
 
 # ---------- File Scanner ----------
@@ -135,14 +136,14 @@ def unzipFolders():
             os.makedirs(extract_folder, exist_ok=True)
             with zipfile.ZipFile(zip_path, "r") as zip_ref:
                 zip_ref.extractall(extract_folder)
-            print(f"Unzipped: {filename} -> {extract_folder}")
+            print(f"[INFO] Unzipped: {filename} -> {extract_folder}")
 
 
 # ---------- ClamAV Scanner ----------
 def scanWithClamAV():
-    print("\n[!] Running ClamAV scan...")
+    print("\n[INFO] Running ClamAV scan...")
     scan_command = [
-        r"C:\Program Files (x86)\ClamAV\clamscan.exe",
+        "clamscan",
         "-r",
         "--infected",
         "--no-summary",
@@ -152,35 +153,31 @@ def scanWithClamAV():
         result = subprocess.run(
             scan_command, capture_output=True, text=True, check=False
         )
-        print("[!] Scan complete.\n")
-        print(result.stdout if result.stdout else "[+] No infected files found.")
+        print("[INFO] Scan complete.\n")
+        print(result.stdout if result.stdout else "[INFO] No infected files found.")
     except FileNotFoundError:
-        print(
-            "[ERROR] ClamAV (clamscan) not found. Make sure it is installed and added to PATH."
-        )
+        print("[ERROR] clamscan not found. Install it with: sudo apt install clamav")
 
 
 # ---------- Cleanup ----------
 def clear_directory():
     if not os.path.exists(TO_PROCESS_FURTHER_PATH):
-        print(f"[!] Path does not exist: {TO_PROCESS_FURTHER_PATH}")
+        print(f"[WARNING] Path does not exist: {TO_PROCESS_FURTHER_PATH}")
         return
     for item in os.listdir(TO_PROCESS_FURTHER_PATH):
         item_path = os.path.join(TO_PROCESS_FURTHER_PATH, item)
         try:
             if os.path.isfile(item_path) or os.path.islink(item_path):
                 os.unlink(item_path)
-                print(f"[+] File deleted: {item_path}")
+                print(f"[INFO] Deleted file: {item_path}")
             elif os.path.isdir(item_path):
                 shutil.rmtree(item_path)
-                print(f"[+] Folder deleted: {item_path}")
+                print(f"[INFO] Deleted folder: {item_path}")
         except Exception as e:
             print(f"[ERROR] Could not delete {item_path}. Reason: {e}")
 
 
-from urllib.parse import urlparse
-
-
+# ---------- URL Filter ----------
 def is_scrapable_moodle_link(url: str) -> bool:
     parsed = urlparse(url)
 
@@ -189,14 +186,12 @@ def is_scrapable_moodle_link(url: str) -> bool:
 
     domain = parsed.netloc.lower()
 
-    # Allow Moodle course/resource pages
     if (
         "/moodle/course/view.php" in parsed.path
         or "/moodle/mod/resource/view.php" in parsed.path
     ):
         return True
 
-    # Allow known content domains
     if any(
         good in domain
         for good in [
@@ -204,12 +199,11 @@ def is_scrapable_moodle_link(url: str) -> bool:
             "sfia-online.org",
             "navexone.com",
             "dlsweb.rmit.edu.au",
-            "mindtools.com"
+            "mindtools.com",
         ]
     ):
         return True
 
-    # Block known non-content domains
     if any(
         exclude in domain
         for exclude in [
@@ -222,7 +216,6 @@ def is_scrapable_moodle_link(url: str) -> bool:
     ):
         return False
 
-    # Allow any link ending with a content file extension
     if any(
         url.lower().endswith(ext)
         for ext in [".pdf", ".doc", ".docx", ".pptx", ".xls", ".xlsx"]
@@ -235,13 +228,13 @@ def is_scrapable_moodle_link(url: str) -> bool:
 # ---------- Main ----------
 def downloadFilesAndCheck():
     unzipFolders()
-    # scanWithClamAV()
+    scanWithClamAV()
     found_links = scan_folder_for_links(TO_PROCESS_FURTHER_PATH)
 
-    print("\n📦 Scan Summary:")
+    print("\n[INFO] Scan Summary:")
 
     all_scanned_files = set()
-    all_links = []  # ✅ collect all links across all files
+    all_links = []
 
     for root, dirs, files in os.walk(TO_PROCESS_FURTHER_PATH):
         for fname in files:
@@ -254,15 +247,21 @@ def downloadFilesAndCheck():
 
     for filepath in sorted(all_scanned_files):
         links = found_links.get(filepath, [])
-        print(f"\n📄 {filepath} — Found {len(links)} link(s):")
+        print(f"\n[FILE] {filepath} - Found {len(links)} link(s):")
         for link in links:
-            print(f"   🔗 {link}")
-            all_links.append(link)  # ✅ add each link to the master list
+            print(f"   [LINK] {link}")
+            all_links.append(link)
+
     scrapable_links = list(filter(is_scrapable_moodle_link, all_links))
-    print(scrapable_links)
-    return scrapable_links  # ✅ return all collected links
 
-    # clear_directory()
+    print("\n[INFO] Scrapable Moodle Links:")
+    for link in scrapable_links:
+        print(f"   [SCRAPE] {link}")
+
+    clear_directory()
+    return scrapable_links
 
 
-downloadFilesAndCheck()
+# ---------- Run ----------
+if __name__ == "__main__":
+    downloadFilesAndCheck()
